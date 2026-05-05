@@ -50,6 +50,11 @@ WEAPON_TYPES_CN = ['剑', '枪', '斧', '弓', '火', '风', '雷', '杖', '光'
 #   per slot: 4-byte partner PID ptr + 3 bonus bytes (C/B/A) + 1 padding byte
 RELIANCE_TBL = 0x12DBC
 
+# DivineData (属性 / affinity bonus table) — 9 affinities × 12 bytes:
+#   4-byte name pointer + 4-byte bonus word (1 byte each: atk, def, hit, avo) + 4-byte trailing word
+#   Each bonus byte represents a 0.5x multiplier (e.g., 5 = +2.5, 10 = +5)
+DIVINE_TBL = 0xF4AC
+
 # KiznaData (絆 / 固定支援) section — 36 entries × 12 bytes:
 #   4-byte PID A ptr + 4-byte PID B ptr + 1-byte bonus type + 1-byte bonus value + 2-byte padding
 #   type 0x01 = 必杀加成 (crit bonus, value = +5 or +10), type 0x02 = 对话型 (story/dialogue, no combat bonus)
@@ -165,6 +170,7 @@ class FE9Data:
         self.item_count = struct.unpack('>I', self.data[ITEM_TBL:ITEM_TBL+4])[0]
         self.reliance_count = struct.unpack('>I', self.data[RELIANCE_TBL:RELIANCE_TBL+4])[0]
         self.kizna_count = struct.unpack('>I', self.data[KIZNA_TBL:KIZNA_TBL+4])[0]
+        self.divine_count = struct.unpack('>I', self.data[DIVINE_TBL:DIVINE_TBL+4])[0]
         self.translations = load_translations()
         # Pointer relocation table — used to validate which pointer fields are safe to edit.
         # Only fields registered here get relocated by the engine at load time. Writing a
@@ -580,6 +586,42 @@ class FE9Data:
             'pid_b': self.get_string(pb),
             'bonus_type':  self.original_data[eo + 8],
             'bonus_value': self.original_data[eo + 9],
+        }
+
+    # --- DivineData (属性奖励) ---
+    DIVINE_ENTRY = 12   # 4-byte name ptr + 4-byte bonus word + 4-byte trailing
+    DIVINE_BONUS_NAMES = ['atk', 'def', 'hit', 'avo']  # byte 0..3 in the bonus word
+
+    def divine_offset(self, idx):
+        return DIVINE_TBL + 4 + idx * self.DIVINE_ENTRY
+
+    def get_divine(self, idx):
+        eo = self.divine_offset(idx)
+        name_ptr = self._ptr(eo)
+        bonus = list(self.data[eo+4:eo+8])
+        return {
+            'idx': idx,
+            'offset': eo,
+            'name': self.get_string(name_ptr),  # 'fire'/'water'/'wind'/'thunder'/'dark'/'light'/'heaven'/'telius'/'none'
+            'atk': bonus[0],
+            'def': bonus[1],
+            'hit': bonus[2],
+            'avo': bonus[3],
+        }
+
+    def set_divine_field(self, idx, field, value):
+        """field = 'atk'/'def'/'hit'/'avo'."""
+        eo = self.divine_offset(idx)
+        off_in_bonus = self.DIVINE_BONUS_NAMES.index(field)
+        self.data[eo + 4 + off_in_bonus] = max(0, min(255, int(value)))
+
+    def original_divine(self, idx):
+        eo = self.divine_offset(idx)
+        name_ptr = struct.unpack('>I', self.original_data[eo:eo+4])[0]
+        bonus = list(self.original_data[eo+4:eo+8])
+        return {
+            'name': self.get_string(name_ptr),
+            'atk': bonus[0], 'def': bonus[1], 'hit': bonus[2], 'avo': bonus[3],
         }
 
     def get_weapon_levels(self, ptr):

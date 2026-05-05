@@ -967,7 +967,8 @@
     "thunder": "雷",
     "dark": "暗",
     "light": "光",
-    "heaven": "天"
+    "heaven": "天",
+    "telius": "地"
   },
   "skills": {
     "SID_HERO": "主角印",

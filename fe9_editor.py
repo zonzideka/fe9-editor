@@ -1128,6 +1128,88 @@ class RelianceTab(QWidget):
             self.pair.set_row_visible(row, visible)
 
 
+class DivineTab(QWidget):
+    """Affinity bonus table — 9 affinities × (atk, def, hit, avo) bytes.
+    Each byte stored as 2× the in-game display value (e.g. byte 5 = +2.5)."""
+    HEADERS = ['#', '内部名', '中文', '攻击', '防御', '命中', '回避']
+    COL_NAME = 1
+    COL_CN   = 2
+    COL_ATK  = 3
+    COL_DEF  = 4
+    COL_HIT  = 5
+    COL_AVO  = 6
+    SCALAR_MAP = {COL_ATK: 'atk', COL_DEF: 'def', COL_HIT: 'hit', COL_AVO: 'avo'}
+
+    def __init__(self, model: FE9Data, on_change):
+        super().__init__()
+        self.model = model
+        self.on_change = on_change
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(8, 8, 8, 8)
+
+        info = QLabel('每条 affinity 每升一级支援，两边角色都获得这里所列的奖励。'
+                      '存储值 = 实际显示数值 × 2 (例如 5 表示 +2.5)。'
+                      '游戏 8 个属性 + "none" 占位。')
+        info.setWordWrap(True)
+        layout.addWidget(info)
+
+        self.table = QTableWidget(model.divine_count, len(self.HEADERS))
+        self.table.setHorizontalHeaderLabels(self.HEADERS)
+        self.table.setAlternatingRowColors(True)
+        self.table.verticalHeader().setVisible(False)
+        self.table.setItemDelegate(IntDelegate())
+        self.table.setEditTriggers(QAbstractItemView.EditTrigger.DoubleClicked | QAbstractItemView.EditTrigger.SelectedClicked | QAbstractItemView.EditTrigger.EditKeyPressed)
+        layout.addWidget(self.table)
+
+        self._suppress = False
+        self.populate()
+        self.table.itemChanged.connect(self.on_item_changed)
+        self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
+
+    def populate(self):
+        self._suppress = True
+        for i in range(self.model.divine_count):
+            div = self.model.get_divine(i)
+            orig = self.model.original_divine(i)
+            cn = self.model.affinity_cn(div['name'])
+            self.table.setItem(i, 0, make_item(i, editable=False, ro_bg=True))
+            self.table.setItem(i, self.COL_NAME, make_item(div['name'], editable=False, mono=True, ro_bg=True))
+            self.table.setItem(i, self.COL_CN, make_item(cn, editable=False, ro_bg=True))
+            for col, key in self.SCALAR_MAP.items():
+                v = div[key]
+                ov = orig[key]
+                disp = f'{v}  (+{v/2:.1f})'
+                item = make_item(disp, editable=True)
+                item.setData(Qt.ItemDataRole.UserRole, v)
+                item.setBackground(QBrush(MOD_BG if v != ov else TINT_SCALAR))
+                self.table.setItem(i, col, item)
+        self._suppress = False
+
+    def on_item_changed(self, item):
+        if self._suppress: return
+        col = item.column()
+        if col not in self.SCALAR_MAP:
+            return
+        # Parse value: accept either integer ("5") or "5  (+2.5)"
+        text = item.text().strip()
+        try:
+            value = int(text.split()[0]) if text else 0
+        except ValueError:
+            return
+        row = item.row()
+        field = self.SCALAR_MAP[col]
+        self.model.set_divine_field(row, field, value)
+        orig = self.model.original_divine(row)
+        ov = orig[field]
+        # Update display to canonical "X  (+X.X)" form (and bg)
+        self._suppress = True
+        item.setText(f'{value}  (+{value/2:.1f})')
+        item.setData(Qt.ItemDataRole.UserRole, value)
+        item.setBackground(QBrush(MOD_BG if value != ov else TINT_SCALAR))
+        self._suppress = False
+        self.on_change()
+
+
 class KiznaTypeDelegate(NamedComboDelegate):
     """Dropdown for fixed-support type byte (1=必杀加成, 2=对话型)."""
     def _load_options(self):
@@ -1464,6 +1546,15 @@ class DiffDialog(QDialog):
                 out.append(f'{i:>3}  {k["pid_a"]:<22} {k["pid_b"]:<22}  类型        {o["bonus_type"]} → {k["bonus_type"]}')
             if k['bonus_value'] != o['bonus_value']:
                 out.append(f'{i:>3}  {k["pid_a"]:<22} {k["pid_b"]:<22}  数值        {o["bonus_value"]} → {k["bonus_value"]}')
+        out.append('')
+        out.append('=== DivineData (属性奖励) 改动 ===')
+        for i in range(model.divine_count):
+            d = model.get_divine(i)
+            o = model.original_divine(i)
+            cn = model.affinity_cn(d['name'])
+            for f in ('atk', 'def', 'hit', 'avo'):
+                if d[f] != o[f]:
+                    out.append(f'{i:>3}  {cn or d["name"]:<6} {f:>4}  {o[f]} (+{o[f]/2:.1f}) → {d[f]} (+{d[f]/2:.1f})')
         return '\n'.join(out)
 
 
@@ -1542,8 +1633,10 @@ class MainWindow(QMainWindow):
         self.tabs.addTab(self.person_tab, f'角色表 / PersonData ({self.model.person_count})')
         self.tabs.addTab(self.item_tab, f'物品表 / ItemData ({self.model.item_count})')
         self.kizna_tab = KiznaTab(self.model, self.update_status)
+        self.divine_tab = DivineTab(self.model, self.update_status)
         self.tabs.addTab(self.reliance_tab, f'等级支援 / RelianceData ({self.model.reliance_count})')
         self.tabs.addTab(self.kizna_tab, f'固定支援 / KiznaData ({self.model.kizna_count})')
+        self.tabs.addTab(self.divine_tab, f'属性奖励 / DivineData ({self.model.divine_count})')
         self.update_status()
 
     def update_status(self):
