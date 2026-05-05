@@ -50,6 +50,12 @@ WEAPON_TYPES_CN = ['剑', '枪', '斧', '弓', '火', '风', '雷', '杖', '光'
 #   per slot: 4-byte partner PID ptr + 3 bonus bytes (C/B/A) + 1 padding byte
 RELIANCE_TBL = 0x12DBC
 
+# KiznaData (絆 / 固定支援) section — 36 entries × 12 bytes:
+#   4-byte PID A ptr + 4-byte PID B ptr + 1-byte bonus type + 1-byte bonus value + 2-byte padding
+#   type 0x01 = 必杀加成 (crit bonus, value = +5 or +10), type 0x02 = 对话型 (story/dialogue, no combat bonus)
+KIZNA_TBL = 0x145BC
+KIZNA_ENTRY = 12
+
 # ItemData section
 ITEM_TBL = 0x9CB0
 ITEM_ENTRY = 0x60   # 96 bytes per entry
@@ -158,6 +164,7 @@ class FE9Data:
         self.person_count = struct.unpack('>I', self.data[PERSON_TBL:PERSON_TBL+4])[0]
         self.item_count = struct.unpack('>I', self.data[ITEM_TBL:ITEM_TBL+4])[0]
         self.reliance_count = struct.unpack('>I', self.data[RELIANCE_TBL:RELIANCE_TBL+4])[0]
+        self.kizna_count = struct.unpack('>I', self.data[KIZNA_TBL:KIZNA_TBL+4])[0]
         self.translations = load_translations()
         # Pointer relocation table — used to validate which pointer fields are safe to edit.
         # Only fields registered here get relocated by the engine at load time. Writing a
@@ -528,6 +535,52 @@ class FE9Data:
                 'bonus_c': bonus[0], 'bonus_b': bonus[1], 'bonus_a': bonus[2],
             })
         return {'main_pid': self.get_string(main_ptr), 'count': count, 'slots': slots}
+
+    # --- KiznaData (固定支援) ---
+    def kizna_offset(self, idx):
+        return KIZNA_TBL + 4 + idx * KIZNA_ENTRY
+
+    def get_kizna(self, idx):
+        eo = self.kizna_offset(idx)
+        pa = self._ptr(eo)
+        pb = self._ptr(eo + 4)
+        return {
+            'idx': idx,
+            'offset': eo,
+            'pid_a': self.get_string(pa),
+            'pid_b': self.get_string(pb),
+            'pid_a_ptr': pa,
+            'pid_b_ptr': pb,
+            'bonus_type':  self.data[eo + 8],
+            'bonus_value': self.data[eo + 9],
+            'pad':  list(self.data[eo+10:eo+12]),
+        }
+
+    def set_kizna_partner(self, idx, which, pid_name):
+        """which = 'a' or 'b'."""
+        eo = self.kizna_offset(idx)
+        field_off = eo + (0 if which == 'a' else 4)
+        relptr = self.pid_to_relptr(pid_name) if pid_name else 0
+        if relptr != 0 and not self.is_pointer_field_safe(field_off):
+            raise UnsafePointerEdit(field_off, '该固定支援条目的此 PID 字段未在引擎重定位表中登记，写入新指针会让游戏崩溃。')
+        self.data[field_off:field_off+4] = struct.pack('>I', relptr)
+
+    def set_kizna_field(self, idx, field, value):
+        """field = 'type' or 'value' (1-byte each)."""
+        eo = self.kizna_offset(idx)
+        off = eo + (8 if field == 'type' else 9)
+        self.data[off] = max(0, min(255, int(value)))
+
+    def original_kizna(self, idx):
+        eo = self.kizna_offset(idx)
+        pa = struct.unpack('>I', self.original_data[eo:eo+4])[0]
+        pb = struct.unpack('>I', self.original_data[eo+4:eo+8])[0]
+        return {
+            'pid_a': self.get_string(pa),
+            'pid_b': self.get_string(pb),
+            'bonus_type':  self.original_data[eo + 8],
+            'bonus_value': self.original_data[eo + 9],
+        }
 
     def get_weapon_levels(self, ptr):
         """Decode the 9-byte weapon-level block at the given relative pointer.

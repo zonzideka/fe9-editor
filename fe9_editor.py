@@ -1128,6 +1128,187 @@ class RelianceTab(QWidget):
             self.pair.set_row_visible(row, visible)
 
 
+class KiznaTypeDelegate(NamedComboDelegate):
+    """Dropdown for fixed-support type byte (1=必杀加成, 2=对话型)."""
+    def _load_options(self):
+        return [(1, '必杀加成 (1)'), (2, '对话型 (2)')]
+    def _lookup_cn(self, key):
+        return {1: '必杀加成', 2: '对话型'}.get(key, '')
+
+
+class KiznaTab(QWidget):
+    """Fixed support / 絆 / KiznaData — 36 entries × 12 bytes."""
+    FROZEN_HEADERS = ['#', '角色 A', '角色 A 中文', '角色 B', '角色 B 中文']
+    SCROLL_HEADERS = ['类型', '数值', '说明']
+    COL_TYPE  = 0
+    COL_VALUE = 1
+    COL_DESC  = 2
+
+    def __init__(self, model: FE9Data, on_change):
+        super().__init__()
+        self.model = model
+        self.on_change = on_change
+
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(8, 8, 8, 8)
+
+        topbar = QHBoxLayout()
+        topbar.addWidget(QLabel('筛选 (角色 PID/中文):'))
+        self.filter_box = QLineEdit()
+        self.filter_box.setPlaceholderText('如 IKE / 艾克 / GREIL')
+        self.filter_box.textChanged.connect(self.apply_filter)
+        topbar.addWidget(self.filter_box, 1)
+        layout.addLayout(topbar)
+
+        self.pair = FrozenTablePair(model.kizna_count, self.FROZEN_HEADERS, self.SCROLL_HEADERS)
+        layout.addWidget(self.pair)
+
+        self._suppress = False
+        self.populate()
+        self.pair.right.itemChanged.connect(self.on_item_changed)
+        self.pair.left.itemChanged.connect(self.on_left_item_changed)
+        self.pair.configure_columns()
+
+    def populate(self):
+        self._suppress = True
+        self._delegate_int  = IntDelegate(self.pair.right)
+        self._delegate_pid  = PidComboDelegate(self.model, self.pair.left)
+        self._delegate_type = KiznaTypeDelegate(self.model, self.pair.right)
+        self.pair.left.setItemDelegateForColumn(1, self._delegate_pid)
+        self.pair.left.setItemDelegateForColumn(3, self._delegate_pid)
+        self.pair.right.setItemDelegate(self._delegate_int)
+        self.pair.right.setItemDelegateForColumn(self.COL_TYPE, self._delegate_type)
+
+        for i in range(self.model.kizna_count):
+            k = self.model.get_kizna(i)
+            orig = self.model.original_kizna(i)
+            cn_a = self.model.translations.get('persons', {}).get(k['pid_a'], {}).get('cn', '')
+            cn_b = self.model.translations.get('persons', {}).get(k['pid_b'], {}).get('cn', '')
+
+            self.pair.left.setItem(i, 0, make_item(i, editable=False, ro_bg=True))
+
+            # PID A — editable dropdown
+            disp_a = f'{cn_a}  [{k["pid_a"]}]' if cn_a else (k['pid_a'] or '—')
+            safe_a = self.model.is_pointer_field_safe(k['offset'])
+            ia = make_item(disp_a, editable=safe_a, mono=True)
+            ia.setData(Qt.ItemDataRole.UserRole, k['pid_a'])
+            ia.setBackground(QBrush(MOD_BG if k['pid_a'] != orig['pid_a'] else (RO_BG if safe_a else LOCKED_BG)))
+            self.pair.left.setItem(i, 1, ia)
+            self.pair.left.setItem(i, 2, make_item(cn_a, editable=False, ro_bg=True))
+
+            disp_b = f'{cn_b}  [{k["pid_b"]}]' if cn_b else (k['pid_b'] or '—')
+            safe_b = self.model.is_pointer_field_safe(k['offset'] + 4)
+            ib = make_item(disp_b, editable=safe_b, mono=True)
+            ib.setData(Qt.ItemDataRole.UserRole, k['pid_b'])
+            ib.setBackground(QBrush(MOD_BG if k['pid_b'] != orig['pid_b'] else (RO_BG if safe_b else LOCKED_BG)))
+            self.pair.left.setItem(i, 3, ib)
+            self.pair.left.setItem(i, 4, make_item(cn_b, editable=False, ro_bg=True))
+
+            # Right: type / value / desc
+            t_disp = '必杀加成 (1)' if k['bonus_type'] == 1 else ('对话型 (2)' if k['bonus_type'] == 2 else f'未知 ({k["bonus_type"]})')
+            t_item = make_item(t_disp, editable=True)
+            t_item.setData(Qt.ItemDataRole.UserRole, k['bonus_type'])
+            t_item.setBackground(QBrush(MOD_BG if k['bonus_type'] != orig['bonus_type'] else TINT_SCALAR))
+            self.pair.right.setItem(i, self.COL_TYPE, t_item)
+
+            v_item = make_item(k['bonus_value'], editable=True)
+            v_item.setBackground(QBrush(MOD_BG if k['bonus_value'] != orig['bonus_value'] else TINT_SCALAR))
+            self.pair.right.setItem(i, self.COL_VALUE, v_item)
+
+            # Description (read-only, derived)
+            desc = ''
+            if k['bonus_type'] == 1: desc = f'必杀 +{k["bonus_value"]}'
+            elif k['bonus_type'] == 2: desc = '对话/家族关系（无战斗加成）'
+            self.pair.right.setItem(i, self.COL_DESC, make_item(desc, editable=False, bg=RO_BG))
+        self._suppress = False
+
+    def on_left_item_changed(self, item):
+        if self._suppress: return
+        col = item.column()
+        if col not in (1, 3): return
+        row = item.row()
+        which = 'a' if col == 1 else 'b'
+        new_pid = item.data(Qt.ItemDataRole.UserRole) or ''
+        try:
+            self.model.set_kizna_partner(row, which, new_pid)
+        except UnsafePointerEdit as e:
+            QMessageBox.warning(self, '不安全的指针修改', str(e))
+            self._suppress = True
+            orig = self.model.original_kizna(row)
+            orig_pid = orig['pid_a' if which == 'a' else 'pid_b']
+            tr = self.model.translations.get('persons', {}).get(orig_pid, {})
+            cn = tr.get('cn', '')
+            disp = f'{cn}  [{orig_pid}]' if cn else (orig_pid or '—')
+            item.setText(disp)
+            item.setData(Qt.ItemDataRole.UserRole, orig_pid)
+            self._suppress = False
+            return
+        except KeyError:
+            return
+        orig = self.model.original_kizna(row)
+        orig_pid = orig['pid_a' if which == 'a' else 'pid_b']
+        item.setBackground(QBrush(MOD_BG if new_pid != orig_pid else RO_BG))
+        # Update CN display column
+        self._suppress = True
+        cn = self.model.translations.get('persons', {}).get(new_pid, {}).get('cn', '')
+        cn_col = 2 if col == 1 else 4
+        cn_cell = self.pair.left.item(row, cn_col)
+        if cn_cell: cn_cell.setText(cn)
+        self._suppress = False
+        self.on_change()
+
+    def on_item_changed(self, item):
+        if self._suppress: return
+        col = item.column()
+        row = item.row()
+        if col == self.COL_TYPE:
+            new_t = item.data(Qt.ItemDataRole.UserRole)
+            if new_t is None:
+                # Try to parse "必杀加成 (1)" or "对话型 (2)"
+                try:
+                    new_t = int(item.text().split('(')[1].rstrip(')').strip())
+                except: return
+            self.model.set_kizna_field(row, 'type', new_t)
+            orig = self.model.original_kizna(row)
+            item.setBackground(QBrush(MOD_BG if new_t != orig['bonus_type'] else TINT_SCALAR))
+            # Update description
+            self._suppress = True
+            v = self.model.get_kizna(row)['bonus_value']
+            desc = f'必杀 +{v}' if new_t == 1 else ('对话/家族关系（无战斗加成）' if new_t == 2 else '')
+            d_cell = self.pair.right.item(row, self.COL_DESC)
+            if d_cell: d_cell.setText(desc)
+            self._suppress = False
+            self.on_change()
+            return
+        if col == self.COL_VALUE:
+            try:
+                value = int(item.text())
+            except ValueError:
+                return
+            self.model.set_kizna_field(row, 'value', value)
+            orig = self.model.original_kizna(row)
+            item.setBackground(QBrush(MOD_BG if value != orig['bonus_value'] else TINT_SCALAR))
+            # Update description
+            self._suppress = True
+            t = self.model.get_kizna(row)['bonus_type']
+            desc = f'必杀 +{value}' if t == 1 else ('对话/家族关系（无战斗加成）' if t == 2 else '')
+            d_cell = self.pair.right.item(row, self.COL_DESC)
+            if d_cell: d_cell.setText(desc)
+            self._suppress = False
+            self.on_change()
+            return
+
+    def apply_filter(self, text):
+        text = text.strip().lower()
+        for i in range(self.model.kizna_count):
+            k = self.model.get_kizna(i)
+            cn_a = self.model.translations.get('persons', {}).get(k['pid_a'], {}).get('cn', '')
+            cn_b = self.model.translations.get('persons', {}).get(k['pid_b'], {}).get('cn', '')
+            haystack = ' '.join([k['pid_a'], cn_a, k['pid_b'], cn_b]).lower()
+            visible = (not text) or (text in haystack)
+            self.pair.set_row_visible(i, visible)
+
+
 class DiffDialog(QDialog):
     def __init__(self, model: FE9Data, parent=None):
         super().__init__(parent)
@@ -1269,6 +1450,20 @@ class DiffDialog(QDialog):
                 for L in ('c', 'b', 'a'):
                     if cur_s[f'bonus_{L}'] != orig_s[f'bonus_{L}']:
                         out.append(f'{i:>3}  {cur["main_pid"]:<22} {si:>3}  {L.upper()} 奖励          {orig_s[f"bonus_{L}"]:>3} → {cur_s[f"bonus_{L}"]:>3}')
+        out.append('')
+        out.append('=== KiznaData (固定支援) 改动 ===')
+        out.append(f'{"#":>3}  {"角色 A":<22} {"角色 B":<22}  字段        改前 → 改后')
+        for i in range(model.kizna_count):
+            k = model.get_kizna(i)
+            o = model.original_kizna(i)
+            if k['pid_a'] != o['pid_a']:
+                out.append(f'{i:>3}  {o["pid_a"]:<22} {o["pid_b"]:<22}  角色 A      {o["pid_a"] or "—"} → {k["pid_a"] or "—"}')
+            if k['pid_b'] != o['pid_b']:
+                out.append(f'{i:>3}  {k["pid_a"]:<22} {o["pid_b"]:<22}  角色 B      {o["pid_b"] or "—"} → {k["pid_b"] or "—"}')
+            if k['bonus_type'] != o['bonus_type']:
+                out.append(f'{i:>3}  {k["pid_a"]:<22} {k["pid_b"]:<22}  类型        {o["bonus_type"]} → {k["bonus_type"]}')
+            if k['bonus_value'] != o['bonus_value']:
+                out.append(f'{i:>3}  {k["pid_a"]:<22} {k["pid_b"]:<22}  数值        {o["bonus_value"]} → {k["bonus_value"]}')
         return '\n'.join(out)
 
 
@@ -1346,7 +1541,9 @@ class MainWindow(QMainWindow):
         self.tabs.addTab(self.job_tab, f'职业表 / JobData ({self.model.job_count})')
         self.tabs.addTab(self.person_tab, f'角色表 / PersonData ({self.model.person_count})')
         self.tabs.addTab(self.item_tab, f'物品表 / ItemData ({self.model.item_count})')
-        self.tabs.addTab(self.reliance_tab, f'支援表 / RelianceData ({self.model.reliance_count})')
+        self.kizna_tab = KiznaTab(self.model, self.update_status)
+        self.tabs.addTab(self.reliance_tab, f'等级支援 / RelianceData ({self.model.reliance_count})')
+        self.tabs.addTab(self.kizna_tab, f'固定支援 / KiznaData ({self.model.kizna_count})')
         self.update_status()
 
     def update_status(self):
