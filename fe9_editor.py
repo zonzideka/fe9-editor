@@ -113,6 +113,23 @@ class NamedComboDelegate(QStyledItemDelegate):
         model.setData(index, key, Qt.ItemDataRole.UserRole)
 
 
+class PidComboDelegate(NamedComboDelegate):
+    """Dropdown for PID slot cells (used in support pairs)."""
+    def _load_options(self):
+        named = []
+        for pid in self.fe9_model.all_pids():
+            tr = self.fe9_model.translations.get('persons', {}).get(pid, {})
+            cn = tr.get('cn', '')
+            named.append((pid, f'{cn}  [{pid}]' if cn else pid))
+        named.sort(key=lambda x: x[1])
+        return [('', '— 无 —')] + named
+
+    def _lookup_cn(self, key):
+        if not key: return ''
+        tr = self.fe9_model.translations.get('persons', {}).get(key, {})
+        return f'{tr.get("cn","")}  [{key}]' if tr.get('cn') else key
+
+
 class SkillComboDelegate(NamedComboDelegate):
     """Dropdown for SID skill cells."""
     def _load_options(self):
@@ -966,6 +983,151 @@ class ItemTab(QWidget):
             self.pair.set_row_visible(i, visible)
 
 
+class RelianceTab(QWidget):
+    """Support data: flat row-per-pair view."""
+    FROZEN_HEADERS = ['#', '主角 PID', '主角 中文', '槽']
+    SCROLL_HEADERS = ['伙伴', 'C 奖励', 'B 奖励', 'A 奖励']
+    COL_PARTNER = 0
+    COL_C = 1
+    COL_B = 2
+    COL_A = 3
+
+    def __init__(self, model: FE9Data, on_change):
+        super().__init__()
+        self.model = model
+        self.on_change = on_change
+
+        # Build flat (entry_idx, slot_idx) row map
+        self._rows = []   # list of (entry_idx, slot_idx)
+        for i in range(model.reliance_count):
+            r = model.get_reliance(i)
+            for s in range(r['count']):
+                self._rows.append((i, s))
+
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(8, 8, 8, 8)
+
+        topbar = QHBoxLayout()
+        topbar.addWidget(QLabel('筛选 (主角/伙伴 中文/PID):'))
+        self.filter_box = QLineEdit()
+        self.filter_box.setPlaceholderText('如 IKE / 艾克 / TIAMAT')
+        self.filter_box.textChanged.connect(self.apply_filter)
+        topbar.addWidget(self.filter_box, 1)
+        layout.addLayout(topbar)
+
+        self.pair = FrozenTablePair(len(self._rows), self.FROZEN_HEADERS, self.SCROLL_HEADERS)
+        layout.addWidget(self.pair)
+
+        self._suppress = False
+        self.populate()
+        self.pair.right.itemChanged.connect(self.on_item_changed)
+        self.pair.configure_columns()
+
+    def _scalar_meta(self, col):
+        if col == self.COL_C: return 'C'
+        if col == self.COL_B: return 'B'
+        if col == self.COL_A: return 'A'
+        return None
+
+    def _section_bg(self, col):
+        if col == self.COL_PARTNER: return RO_BG
+        return TINT_SCALAR
+
+    def populate(self):
+        self._suppress = True
+        self._delegate_int = IntDelegate(self.pair.right)
+        self._delegate_pid = PidComboDelegate(self.model, self.pair.right)
+        self.pair.right.setItemDelegate(self._delegate_int)
+        self.pair.right.setItemDelegateForColumn(self.COL_PARTNER, self._delegate_pid)
+
+        for row, (ei, si) in enumerate(self._rows):
+            r = self.model.get_reliance(ei)
+            slot = r['slots'][si]
+            main_cn = self.model.translations.get('persons', {}).get(r['main_pid'], {}).get('cn', '')
+            partner_pid = slot['partner_pid']
+            partner_cn = self.model.translations.get('persons', {}).get(partner_pid, {}).get('cn', '')
+
+            self.pair.left.setItem(row, 0, make_item(ei, editable=False, ro_bg=True))
+            self.pair.left.setItem(row, 1, make_item(r['main_pid'], editable=False, mono=True, ro_bg=True))
+            self.pair.left.setItem(row, 2, make_item(main_cn, editable=False, ro_bg=True))
+            self.pair.left.setItem(row, 3, make_item(si, editable=False, ro_bg=True))
+
+            # Partner combo
+            partner_disp = f'{partner_cn}  [{partner_pid}]' if partner_cn else (partner_pid or '—')
+            safe = self.model.is_pointer_field_safe(slot['slot_field_off'])
+            item = make_item(partner_disp, editable=safe)
+            item.setData(Qt.ItemDataRole.UserRole, partner_pid)
+            orig_partner = self.model.original_reliance(ei)['slots'][si]['partner_pid']
+            if partner_pid != orig_partner:
+                bg = MOD_BG
+            else:
+                bg = RO_BG if safe else LOCKED_BG
+            item.setBackground(QBrush(bg))
+            if not safe:
+                item.setToolTip('原本为空的伙伴槽 — 引擎重定位表未登记此字段，写入会让游戏崩溃。')
+            self.pair.right.setItem(row, self.COL_PARTNER, item)
+
+            # Bonus cells
+            for col, key in [(self.COL_C, 'bonus_c'), (self.COL_B, 'bonus_b'), (self.COL_A, 'bonus_a')]:
+                v = slot[key]
+                level = {self.COL_C: 'C', self.COL_B: 'B', self.COL_A: 'A'}[col]
+                orig_b = self.model.original_reliance(ei)['slots'][si]
+                orig_v = orig_b['bonus_' + level.lower()]
+                bg = MOD_BG if v != orig_v else TINT_SCALAR
+                self.pair.right.setItem(row, col, make_item(v, bg=bg))
+        self._suppress = False
+
+    def on_item_changed(self, item):
+        if self._suppress: return
+        col = item.column()
+        row = item.row()
+        ei, si = self._rows[row]
+        # Partner column?
+        if col == self.COL_PARTNER:
+            new_pid = item.data(Qt.ItemDataRole.UserRole) or ''
+            try:
+                self.model.set_reliance_partner(ei, si, new_pid)
+            except UnsafePointerEdit as e:
+                QMessageBox.warning(self, '不安全的指针修改', str(e))
+                self._suppress = True
+                orig_partner = self.model.original_reliance(ei)['slots'][si]['partner_pid']
+                tr = self.model.translations.get('persons', {}).get(orig_partner, {})
+                cn = tr.get('cn', '')
+                disp = f'{cn}  [{orig_partner}]' if cn else (orig_partner or '—')
+                item.setText(disp)
+                item.setData(Qt.ItemDataRole.UserRole, orig_partner)
+                self._suppress = False
+                return
+            except KeyError:
+                return
+            orig_partner = self.model.original_reliance(ei)['slots'][si]['partner_pid']
+            item.setBackground(QBrush(MOD_BG if new_pid != orig_partner else RO_BG))
+            self.on_change()
+            return
+        # Bonus column
+        level = self._scalar_meta(col)
+        if level is None: return
+        try:
+            value = int(item.text())
+        except ValueError:
+            return
+        self.model.set_reliance_bonus(ei, si, level, value)
+        orig_v = self.model.original_reliance(ei)['slots'][si]['bonus_' + level.lower()]
+        item.setBackground(QBrush(MOD_BG if value != orig_v else TINT_SCALAR))
+        self.on_change()
+
+    def apply_filter(self, text):
+        text = text.strip().lower()
+        for row, (ei, si) in enumerate(self._rows):
+            r = self.model.get_reliance(ei)
+            partner_pid = r['slots'][si]['partner_pid']
+            main_cn = self.model.translations.get('persons', {}).get(r['main_pid'], {}).get('cn', '')
+            partner_cn = self.model.translations.get('persons', {}).get(partner_pid, {}).get('cn', '')
+            haystack = ' '.join([r['main_pid'], main_cn, partner_pid, partner_cn]).lower()
+            visible = (not text) or (text in haystack)
+            self.pair.set_row_visible(row, visible)
+
+
 class DiffDialog(QDialog):
     def __init__(self, model: FE9Data, parent=None):
         super().__init__(parent)
@@ -1093,6 +1255,20 @@ class DiffDialog(QDialog):
                     cur_d = model.item_effect_cn(cur) or cur or '—'
                     orig_d = model.item_effect_cn(orig) or orig or '—'
                     out.append(f'{i:>3}  {it["iid"]:<28} {it["cn"]:<10} 特效{s+1:<13}  {orig_d} → {cur_d}')
+        out.append('')
+        out.append('=== RelianceData (支援) 改动 ===')
+        out.append(f'{"#":>3}  {"主角":<22} {"槽":>3}  字段           改前 → 改后')
+        for i in range(model.reliance_count):
+            cur = model.get_reliance(i)
+            orig = model.original_reliance(i)
+            for si in range(cur['count']):
+                cur_s = cur['slots'][si]
+                orig_s = orig['slots'][si]
+                if cur_s['partner_pid'] != orig_s['partner_pid']:
+                    out.append(f'{i:>3}  {cur["main_pid"]:<22} {si:>3}  伙伴            {orig_s["partner_pid"] or "—"} → {cur_s["partner_pid"] or "—"}')
+                for L in ('c', 'b', 'a'):
+                    if cur_s[f'bonus_{L}'] != orig_s[f'bonus_{L}']:
+                        out.append(f'{i:>3}  {cur["main_pid"]:<22} {si:>3}  {L.upper()} 奖励          {orig_s[f"bonus_{L}"]:>3} → {cur_s[f"bonus_{L}"]:>3}')
         return '\n'.join(out)
 
 
@@ -1166,9 +1342,11 @@ class MainWindow(QMainWindow):
         self.job_tab = JobTab(self.model, self.update_status)
         self.person_tab = PersonTab(self.model, self.update_status)
         self.item_tab = ItemTab(self.model, self.update_status)
+        self.reliance_tab = RelianceTab(self.model, self.update_status)
         self.tabs.addTab(self.job_tab, f'职业表 / JobData ({self.model.job_count})')
         self.tabs.addTab(self.person_tab, f'角色表 / PersonData ({self.model.person_count})')
         self.tabs.addTab(self.item_tab, f'物品表 / ItemData ({self.model.item_count})')
+        self.tabs.addTab(self.reliance_tab, f'支援表 / RelianceData ({self.model.reliance_count})')
         self.update_status()
 
     def update_status(self):

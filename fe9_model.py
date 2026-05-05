@@ -45,6 +45,11 @@ JOB_LAGUZ   = 0x5C   # 8 bytes (laguz strike data)
 # Block ordering observed empirically: Sword/Lance/Axe/Bow/Fire/Wind/Thunder/Staff/Light
 WEAPON_TYPES_CN = ['剑', '枪', '斧', '弓', '火', '风', '雷', '杖', '光']
 
+# RelianceData (support / 支援) section — 41 entries, variable size:
+#   per entry: 4-byte main PID ptr + 4-byte slot count + N × 8-byte slot
+#   per slot: 4-byte partner PID ptr + 3 bonus bytes (C/B/A) + 1 padding byte
+RELIANCE_TBL = 0x12DBC
+
 # ItemData section
 ITEM_TBL = 0x9CB0
 ITEM_ENTRY = 0x60   # 96 bytes per entry
@@ -152,6 +157,7 @@ class FE9Data:
         self.job_count = struct.unpack('>I', self.data[JOB_TBL:JOB_TBL+4])[0]
         self.person_count = struct.unpack('>I', self.data[PERSON_TBL:PERSON_TBL+4])[0]
         self.item_count = struct.unpack('>I', self.data[ITEM_TBL:ITEM_TBL+4])[0]
+        self.reliance_count = struct.unpack('>I', self.data[RELIANCE_TBL:RELIANCE_TBL+4])[0]
         self.translations = load_translations()
         # Pointer relocation table — used to validate which pointer fields are safe to edit.
         # Only fields registered here get relocated by the engine at load time. Writing a
@@ -415,6 +421,113 @@ class FE9Data:
         eo = self.item_offset(item_idx)
         ptr = struct.unpack('>I', self.original_data[eo+ITEM_F_EFFECT1+4*slot_idx:eo+ITEM_F_EFFECT1+4*slot_idx+4])[0]
         return self.get_string(ptr) if ptr else ''
+
+    # --- RelianceData (supports / 支援) ---
+    def _build_reliance_index(self):
+        """Compute byte offsets of each support entry (variable size)."""
+        if hasattr(self, '_reliance_offsets'):
+            return
+        offsets = []
+        pos = RELIANCE_TBL + 4
+        for i in range(self.reliance_count):
+            offsets.append(pos)
+            count = struct.unpack('>I', self.data[pos+4:pos+8])[0]
+            pos += 8 + 8 * count
+        self._reliance_offsets = offsets
+
+    def reliance_offset(self, idx):
+        self._build_reliance_index()
+        return self._reliance_offsets[idx]
+
+    def get_reliance(self, idx):
+        eo = self.reliance_offset(idx)
+        main_ptr = self._ptr(eo)
+        count = struct.unpack('>I', self.data[eo+4:eo+8])[0]
+        slots = []
+        for s in range(count):
+            sp = eo + 8 + s * 8
+            partner_ptr = self._ptr(sp)
+            bonus = list(self.data[sp+4:sp+8])  # 3 bonus bytes + 1 padding
+            slots.append({
+                'partner_pid': self.get_string(partner_ptr),
+                'partner_ptr': partner_ptr,
+                'bonus_c': bonus[0],
+                'bonus_b': bonus[1],
+                'bonus_a': bonus[2],
+                'pad':     bonus[3],
+                'slot_field_off': sp,    # absolute offset of partner ptr (for safety check)
+            })
+        return {
+            'idx': idx,
+            'offset': eo,
+            'main_pid': self.get_string(main_ptr),
+            'main_ptr': main_ptr,
+            'count': count,
+            'slots': slots,
+        }
+
+    def _build_pid_index(self):
+        if hasattr(self, '_pid_offsets'):
+            return
+        self._pid_offsets = {}
+        for i in range(self.person_count):
+            eo = self.person_offset(i)
+            ptr = self._ptr(eo + PERSON_F_PID)
+            if ptr == 0: continue
+            name = self.get_string(ptr)
+            if name and name not in self._pid_offsets:
+                self._pid_offsets[name] = ptr + 0x20
+
+    def pid_to_relptr(self, pid_name):
+        """Look up a PID's relative pointer value. '' / None → 0."""
+        if not pid_name:
+            return 0
+        self._build_pid_index()
+        off = self._pid_offsets.get(pid_name)
+        if off is None:
+            raise KeyError(f'unknown PID {pid_name!r}')
+        return off - 0x20
+
+    def all_pids(self):
+        self._build_pid_index()
+        return sorted(self._pid_offsets.keys())
+
+    def set_reliance_partner(self, entry_idx, slot_idx, pid_name):
+        """Change a support slot's partner PID. Pass '' or None to clear."""
+        eo = self.reliance_offset(entry_idx)
+        count = struct.unpack('>I', self.data[eo+4:eo+8])[0]
+        if not (0 <= slot_idx < count):
+            raise IndexError(f'slot {slot_idx} out of range (count={count})')
+        sp = eo + 8 + slot_idx * 8
+        relptr = self.pid_to_relptr(pid_name) if pid_name else 0
+        if relptr != 0 and not self.is_pointer_field_safe(sp):
+            raise UnsafePointerEdit(sp, '该支援槽原本为空且未在引擎重定位表中登记，写入新指针会让游戏崩溃。')
+        self.data[sp:sp+4] = struct.pack('>I', relptr)
+
+    def set_reliance_bonus(self, entry_idx, slot_idx, level, value):
+        """Set bonus byte for a slot. level in {'C','B','A'}."""
+        eo = self.reliance_offset(entry_idx)
+        sp = eo + 8 + slot_idx * 8
+        off_in_slot = {'C': 4, 'B': 5, 'A': 6}[level]
+        v = max(0, min(255, int(value)))
+        self.data[sp + off_in_slot] = v
+
+    def original_reliance(self, idx):
+        """Build the original (unmodified) version of an entry."""
+        # Use the same offset (entry layout doesn't change since count is preserved)
+        eo = self.reliance_offset(idx)
+        main_ptr = struct.unpack('>I', self.original_data[eo:eo+4])[0]
+        count = struct.unpack('>I', self.original_data[eo+4:eo+8])[0]
+        slots = []
+        for s in range(count):
+            sp = eo + 8 + s * 8
+            partner_ptr = struct.unpack('>I', self.original_data[sp:sp+4])[0]
+            bonus = list(self.original_data[sp+4:sp+8])
+            slots.append({
+                'partner_pid': self.get_string(partner_ptr),
+                'bonus_c': bonus[0], 'bonus_b': bonus[1], 'bonus_a': bonus[2],
+            })
+        return {'main_pid': self.get_string(main_ptr), 'count': count, 'slots': slots}
 
     def get_weapon_levels(self, ptr):
         """Decode the 9-byte weapon-level block at the given relative pointer.
