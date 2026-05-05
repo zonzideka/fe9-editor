@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Virtualenv
+.venv/
+venv/
+env/
+
+# PyInstaller build output
+build/
+dist/
+*.spec
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# User data — ROM, saves, extracted binaries (do NOT commit)
+*.gcm
+*.iso
+*.gci
+*.bin
+*.bak
+*.raw
+
+# Local overrides
+caps_config.local.py
+translations.local.json
