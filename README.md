@@ -4,6 +4,8 @@
 
 中文 / 日文 / English 三语职业、人物、物品名称对照，技能 / 物品特性下拉选择，所有改动 Save 前预览 + 备份哈希校验。
 
+![职业表](docs/screenshots/1-jobs.png)
+
 ## 功能
 
 | 数据表 | 数量 | 可编辑字段 |
@@ -11,6 +13,31 @@
 | **职业表 / JobData** | 115 | 转职目标、移动、体格、重量、技能格、5 个技能（中文下拉）、武器熟练度 9 项（剑/枪/斧/弓/火/风/雷/杖/光）、上限/基础/成长/兽化各 8 项 |
 | **角色表 / PersonData** | 340 | 等级、体格、重量、兽化槽、3 个技能（中文下拉）、基础值（含负偏移）、成长率 + 只读：头像 / 初始职业 / 属性 / 武器熟练度 |
 | **物品表 / ItemData** | 189 | 单价 / 耐久 / 攻击 / 命中 / 重量 / 必杀 / 射程 / 武器经验 / 6 个特性下拉 / 2 个特效下拉 / 8 项加成 / 8 项成长 |
+| **等级支援 / RelianceData** | 41 | 主角 + 伙伴 PID（下拉）+ C/B/A 阈值字节 |
+| **固定支援 / KiznaData** | 36 | 角色 A/B PID（下拉）+ 类型（必杀加成/对话型）+ 数值 |
+| **属性奖励 / DivineData** | 9 | 8 属性 + none，每属性 4 字节（攻/防/命中/回避），存储值 ×0.5 = 实际显示 |
+
+### 截图
+
+<details>
+<summary>角色表 / PersonData</summary>
+
+![角色表](docs/screenshots/2-persons.png)
+</details>
+
+<details>
+<summary>物品表 / ItemData</summary>
+
+![物品表](docs/screenshots/3-items.png)
+</details>
+
+<details>
+<summary>等级支援 / 固定支援 / 属性奖励</summary>
+
+![等级支援](docs/screenshots/4-reliance.png)
+![固定支援](docs/screenshots/5-kizna.png)
+![属性奖励](docs/screenshots/6-divine.png)
+</details>
 
 附带：
 - 可拖动分隔条 + 列宽调整 + 显示语言列勾选（JID/中文/日文/English 任意组合）
@@ -25,6 +52,10 @@
 - **武器熟练度块共享**：多个职业/角色可能指向同一熟练度块，修改任一会同时影响所有共享方。首次编辑会弹警告并列出所有共享条目。
 - 部分内部字符串无文档：`alize`(物品特效)、`telius`(角色属性)、`SID_EQ_A/B/C/D` 等的确切意义靠数据观察推断，可能不准确。
 - 不支持存档(.gci) 编辑 — FE9 存档格式无公开文档。要给单个角色加技能可用 Action Replay / Gecko 代码（参见 [gamehacking.org](https://gamehacking.org/?game=54777)）。
+
+## 下载
+
+预编译 macOS .app 见 [Releases](https://github.com/zonzideka/fe9-editor/releases)。下载 `.zip` 解压后双击启动。如果系统提示"未签名"，右键 → 打开。
 
 ## 安装运行
 
