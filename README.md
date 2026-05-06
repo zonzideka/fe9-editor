@@ -111,6 +111,15 @@ fe9_patch_caps.py <gcm> --apply
 
 可直接编辑 JSON 文件覆盖任何译名。重启 app 立即生效。
 
+## 姊妹项目
+
+- [**fe9-modifier-macos**](https://github.com/zonzideka/fe9-modifier-macos) — Dolphin **运行时内存**动态修改器 macOS 移植版（人物 / 能力 / 技能 / 装备 / 支援 / 金钱实时改）
+
+| 工具 | 用途 | 改动持久性 |
+|---|---|---|
+| **fe9-editor**（本仓库） | ROM 文件编辑（GCM 内 FE8Data.bin） | 永久；所有新存档都生效 |
+| **fe9-modifier-macos** | 实时改 Dolphin 进程内存 | 仅当前游戏会话；ROM/存档不变 |
+
 ## 致谢
 
 - [Universal-FE-Randomizer](https://github.com/lushen124/Universal-FE-Randomizer) - FE8Data.bin 各表 byte-level layout 的关键参考
