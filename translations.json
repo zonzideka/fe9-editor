@@ -2,7 +2,7 @@
   "_comment": "FE9 Path of Radiance JID/PID translations. CN names follow 苍炎之轨迹 Chinese fan-translation conventions. JP names are the official katakana from the Japanese release. EN names follow the official US English release.",
   "jobs": {
     "JID_RANGER": {
-      "cn": "游侠",
+      "cn": "兵团长",
       "jp": "レンジャー",
       "en": "Ranger"
     },
@@ -12,47 +12,47 @@
       "en": "Lord"
     },
     "JID_HERO_G": {
-      "cn": "勇士(格雷尔专用)",
+      "cn": "勇者",
       "jp": "ヒーロー(グレイル)",
       "en": "Hero (Greil)"
     },
     "JID_SWORDER": {
-      "cn": "剑士",
+      "cn": "剑士「男」",
       "jp": "ソードファイター",
       "en": "Myrmidon"
     },
     "JID_SWORDER/F": {
-      "cn": "剑士(女)",
+      "cn": "剑士「女」",
       "jp": "ソードファイター(女)",
       "en": "Myrmidon (F)"
     },
     "JID_SWORDMASTER": {
-      "cn": "剑圣",
+      "cn": "剑豪「男」",
       "jp": "ソードマスター",
       "en": "Swordmaster"
     },
     "JID_SWORDMASTER/F": {
-      "cn": "剑圣(女)",
+      "cn": "剑豪「女」",
       "jp": "ソードマスター(女)",
       "en": "Swordmaster (F)"
     },
     "JID_SOLDIER": {
-      "cn": "枪兵",
+      "cn": "士兵「男」",
       "jp": "ソルジャー",
       "en": "Soldier"
     },
     "JID_SOLDIER/F": {
-      "cn": "枪兵(女)",
+      "cn": "士兵「女」",
       "jp": "ソルジャー(女)",
       "en": "Soldier (F)"
     },
     "JID_HALBERDIER": {
-      "cn": "长枪兵",
+      "cn": "枪斗士「男」",
       "jp": "ハルバーディア",
       "en": "Halberdier"
     },
     "JID_HALBERDIER/F": {
-      "cn": "长枪兵(女)",
+      "cn": "枪斗士「女」",
       "jp": "ハルバーディア(女)",
       "en": "Halberdier (F)"
     },
@@ -62,7 +62,7 @@
       "en": "Fighter"
     },
     "JID_WARRIOR": {
-      "cn": "勇者",
+      "cn": "勇士",
       "jp": "ウォーリア",
       "en": "Warrior"
     },
@@ -72,12 +72,12 @@
       "en": "Archer"
     },
     "JID_SNIPER": {
-      "cn": "神射手",
+      "cn": "狙击手",
       "jp": "スナイパー",
       "en": "Sniper"
     },
     "JID_ARMOR": {
-      "cn": "重装兵",
+      "cn": "重步兵",
       "jp": "アーマーナイト",
       "en": "Knight"
     },
@@ -87,87 +87,87 @@
       "en": "General"
     },
     "JID_SOCIALKNIGHT_S": {
-      "cn": "苍炎骑士(剑)",
+      "cn": "剑骑士「男」",
       "jp": "ソシアルナイト(剣)",
       "en": "Sword Knight"
     },
     "JID_SOCIALKNIGHT_L": {
-      "cn": "苍炎骑士(枪)",
+      "cn": "枪骑士「男」",
       "jp": "ソシアルナイト(槍)",
       "en": "Lance Knight"
     },
     "JID_SOCIALKNIGHT_A": {
-      "cn": "苍炎骑士(斧)",
+      "cn": "斧骑士「男」",
       "jp": "ソシアルナイト(斧)",
       "en": "Axe Knight"
     },
     "JID_SOCIALKNIGHT_B": {
-      "cn": "苍炎骑士(弓)",
+      "cn": "弓骑士「男」",
       "jp": "ソシアルナイト(弓)",
       "en": "Bow Knight"
     },
     "JID_SOCIALKNIGHT_S/F": {
-      "cn": "苍炎骑士(剑·女)",
+      "cn": "剑骑士「女」",
       "jp": "ソシアルナイト(剣·女)",
       "en": "Sword Knight (F)"
     },
     "JID_SOCIALKNIGHT_L/F": {
-      "cn": "苍炎骑士(枪·女)",
+      "cn": "枪骑士「女」",
       "jp": "ソシアルナイト(槍·女)",
       "en": "Lance Knight (F)"
     },
     "JID_SOCIALKNIGHT_A/F": {
-      "cn": "苍炎骑士(斧·女)",
+      "cn": "斧骑士「女」",
       "jp": "ソシアルナイト(斧·女)",
       "en": "Axe Knight (F)"
     },
     "JID_SOCIALKNIGHT_B/F": {
-      "cn": "苍炎骑士(弓·女)",
+      "cn": "弓骑士「女」",
       "jp": "ソシアルナイト(弓·女)",
       "en": "Bow Knight (F)"
     },
     "JID_PALADIN_S": {
-      "cn": "圣骑士(剑)",
+      "cn": "圣骑士「剑・男」",
       "jp": "パラディン(剣)",
       "en": "Sword Paladin"
     },
     "JID_PALADIN_L": {
-      "cn": "圣骑士(枪)",
+      "cn": "圣骑士「枪・男」",
       "jp": "パラディン(槍)",
       "en": "Lance Paladin"
     },
     "JID_PALADIN_A": {
-      "cn": "圣骑士(斧)",
+      "cn": "圣骑士「斧・男」",
       "jp": "パラディン(斧)",
       "en": "Axe Paladin"
     },
     "JID_PALADIN_B": {
-      "cn": "圣骑士(弓)",
+      "cn": "圣骑士「弓・男」",
       "jp": "パラディン(弓)",
       "en": "Bow Paladin"
     },
     "JID_PALADIN_S/F": {
-      "cn": "圣骑士(剑·女)",
+      "cn": "圣骑士「剑・女」",
       "jp": "パラディン(剣·女)",
       "en": "Sword Paladin (F)"
     },
     "JID_PALADIN_L/F": {
-      "cn": "圣骑士(枪·女)",
+      "cn": "圣骑士「枪・女」",
       "jp": "パラディン(槍·女)",
       "en": "Lance Paladin (F)"
     },
     "JID_PALADIN_A/F": {
-      "cn": "圣骑士(斧·女)",
+      "cn": "圣骑士「斧・女」",
       "jp": "パラディン(斧·女)",
       "en": "Axe Paladin (F)"
     },
     "JID_PALADIN_B/F": {
-      "cn": "圣骑士(弓·女)",
+      "cn": "圣骑士「弓・女」",
       "jp": "パラディン(弓·女)",
       "en": "Bow Paladin (F)"
     },
     "JID_TIAMAT/F": {
-      "cn": "圣骑士(蒂雅马特专用)",
+      "cn": "圣骑士「迪亚玛特」",
       "jp": "パラディン(ティアマト)",
       "en": "Paladin (Titania)"
     },
@@ -177,167 +177,167 @@
       "en": "Pegasus Knight"
     },
     "JID_FALCONKNIGHT/F": {
-      "cn": "天马武者",
+      "cn": "圣天马骑士",
       "jp": "ファルコンナイト",
       "en": "Falcon Knight"
     },
     "JID_FALCONKNIGHT_E/F": {
-      "cn": "女王",
+      "cn": "克利米亚公主",
       "jp": "クイーン",
       "en": "Queen (Elincia)"
     },
     "JID_DRAGONKNIGHT": {
-      "cn": "飞龙骑士",
+      "cn": "龙骑士「男」",
       "jp": "ドラゴンナイト",
       "en": "Wyvern Rider"
     },
     "JID_DRAGONKNIGHT/F": {
-      "cn": "飞龙骑士(女)",
+      "cn": "龙骑士「女」",
       "jp": "ドラゴンナイト(女)",
       "en": "Wyvern Rider (F)"
     },
     "JID_DRAGONMASTER": {
-      "cn": "圣龙骑士",
+      "cn": "圣龙骑士「男」",
       "jp": "ドラゴンマスター",
       "en": "Wyvern Lord"
     },
     "JID_DRAGONMASTER/F": {
-      "cn": "圣龙骑士(女)",
+      "cn": "圣龙骑士「女」",
       "jp": "ドラゴンマスター(女)",
       "en": "Wyvern Lord (F)"
     },
     "JID_DRAGONMASTER_A": {
-      "cn": "戴恩王",
+      "cn": "迪恩国王",
       "jp": "ドラゴンマスター(アシュナード)",
       "en": "King of Daein (Ashnard)"
     },
     "JID_MAGE_F": {
-      "cn": "魔道士(火)",
+      "cn": "魔道士「炎・男」",
       "jp": "マージ(火)",
       "en": "Fire Mage"
     },
     "JID_MAGE_W": {
-      "cn": "魔道士(风)",
+      "cn": "魔道士「风・男」",
       "jp": "マージ(風)",
       "en": "Wind Mage"
     },
     "JID_MAGE_T": {
-      "cn": "魔道士(雷)",
+      "cn": "魔道士「雷・男」",
       "jp": "マージ(雷)",
       "en": "Thunder Mage"
     },
     "JID_MAGE": {
-      "cn": "魔道士",
+      "cn": "魔道士「男」",
       "jp": "マージ",
       "en": "Mage"
     },
     "JID_MAGE_F/F": {
-      "cn": "魔道士(火·女)",
+      "cn": "魔道士「炎・女」",
       "jp": "マージ(火·女)",
       "en": "Fire Mage (F)"
     },
     "JID_MAGE_W/F": {
-      "cn": "魔道士(风·女)",
+      "cn": "魔道士「风・女」",
       "jp": "マージ(風·女)",
       "en": "Wind Mage (F)"
     },
     "JID_MAGE_T/F": {
-      "cn": "魔道士(雷·女)",
+      "cn": "魔道士「雷・女」",
       "jp": "マージ(雷·女)",
       "en": "Thunder Mage (F)"
     },
     "JID_MAGE/F": {
-      "cn": "魔道士(女)",
+      "cn": "魔道士「女」",
       "jp": "マージ(女)",
       "en": "Mage (F)"
     },
     "JID_SAGE_F": {
-      "cn": "贤者(火)",
+      "cn": "贤者「炎・男」",
       "jp": "セイジ(火)",
       "en": "Fire Sage"
     },
     "JID_SAGE_W": {
-      "cn": "贤者(风)",
+      "cn": "贤者「风・男」",
       "jp": "セイジ(風)",
       "en": "Wind Sage"
     },
     "JID_SAGE_T": {
-      "cn": "贤者(雷)",
+      "cn": "贤者「雷・男」",
       "jp": "セイジ(雷)",
       "en": "Thunder Sage"
     },
     "JID_SAGE": {
-      "cn": "贤者",
+      "cn": "贤者「男」",
       "jp": "セイジ",
       "en": "Sage"
     },
     "JID_SAGE_F/F": {
-      "cn": "贤者(火·女)",
+      "cn": "贤者「炎・女」",
       "jp": "セイジ(火·女)",
       "en": "Fire Sage (F)"
     },
     "JID_SAGE_W/F": {
-      "cn": "贤者(风·女)",
+      "cn": "贤者「风・女」",
       "jp": "セイジ(風·女)",
       "en": "Wind Sage (F)"
     },
     "JID_SAGE_T/F": {
-      "cn": "贤者(雷·女)",
+      "cn": "贤者「雷・女」",
       "jp": "セイジ(雷·女)",
       "en": "Thunder Sage (F)"
     },
     "JID_SAGE/F": {
-      "cn": "贤者(女)",
+      "cn": "贤者「女」",
       "jp": "セイジ(女)",
       "en": "Sage (F)"
     },
     "JID_SAGE_R_F": {
-      "cn": "贤者(火·杖)",
+      "cn": "贤者「杖・炎」",
       "jp": "セイジ(火·杖)",
       "en": "Fire Sage (Staff)"
     },
     "JID_SAGE_R_W": {
-      "cn": "贤者(风·杖)",
+      "cn": "贤者「杖・风」",
       "jp": "セイジ(風·杖)",
       "en": "Wind Sage (Staff)"
     },
     "JID_SAGE_R_T": {
-      "cn": "贤者(雷·杖)",
+      "cn": "贤者「杖・雷」",
       "jp": "セイジ(雷·杖)",
       "en": "Thunder Sage (Staff)"
     },
     "JID_SAGE_S_F": {
-      "cn": "贤者(火·短剑)",
+      "cn": "贤者「轻器・炎」",
       "jp": "セイジ(火·短剣)",
       "en": "Fire Sage (Knife)"
     },
     "JID_SAGE_S_W": {
-      "cn": "贤者(风·短剑)",
+      "cn": "贤者「轻器・风」",
       "jp": "セイジ(風·短剣)",
       "en": "Wind Sage (Knife)"
     },
     "JID_SAGE_S_T": {
-      "cn": "贤者(雷·短剑)",
+      "cn": "贤者「轻器・雷」",
       "jp": "セイジ(雷·短剣)",
       "en": "Thunder Sage (Knife)"
     },
     "JID_SAGE_R": {
-      "cn": "贤者(杖)",
+      "cn": "贤者「杖・男」",
       "jp": "セイジ(杖)",
       "en": "Sage (Staff)"
     },
     "JID_SAGE_S": {
-      "cn": "贤者(短剑)",
+      "cn": "贤者「轻器・男」",
       "jp": "セイジ(短剣)",
       "en": "Sage (Knife)"
     },
     "JID_SAGE_R/F": {
-      "cn": "贤者(杖·女)",
+      "cn": "贤者「杖・女」",
       "jp": "セイジ(杖·女)",
       "en": "Sage (Staff, F)"
     },
     "JID_SAGE_S/F": {
-      "cn": "贤者(短剑·女)",
+      "cn": "贤者「轻器・女」",
       "jp": "セイジ(短剣·女)",
       "en": "Sage (Knife, F)"
     },
@@ -347,17 +347,17 @@
       "en": "Priest"
     },
     "JID_BISHOP": {
-      "cn": "主教",
+      "cn": "司祭「男」",
       "jp": "ビショップ",
       "en": "Bishop"
     },
     "JID_BISHOP/F": {
-      "cn": "主教(女)",
+      "cn": "司祭「女」",
       "jp": "ビショップ(女)",
       "en": "Bishop (F)"
     },
     "JID_CLERIC/F": {
-      "cn": "修女",
+      "cn": "牧师",
       "jp": "シスター",
       "en": "Cleric"
     },
@@ -367,184 +367,214 @@
       "en": "Valkyrie"
     },
     "JID_THIEF": {
-      "cn": "盗贼",
+      "cn": "小偷",
       "jp": "シーフ",
       "en": "Thief"
     },
     "JID_ASSASSIN": {
-      "cn": "刺客",
+      "cn": "暗杀者「男」",
       "jp": "アサシン",
       "en": "Assassin"
     },
     "JID_ASSASSIN/F": {
-      "cn": "刺客(女)",
+      "cn": "暗杀者「女」",
       "jp": "アサシン(女)",
       "en": "Assassin (F)"
     },
     "JID_BANDIT": {
-      "cn": "海贼",
+      "cn": "强盗",
       "jp": "海賊",
       "en": "Bandit"
     },
     "JID_BERSERKER": {
-      "cn": "狂战士",
+      "cn": "強盗",
       "jp": "バーサーカー",
       "en": "Berserker"
     },
     "JID_BEAST_L": {
-      "cn": "狮族(未变身)",
+      "cn": "兽牙族「狮子」",
       "jp": "獣牙族·獅子(未変身)",
       "en": "Lion (Untransformed)"
     },
     "JID_BEAST_T": {
-      "cn": "虎族(未变身)",
+      "cn": "兽牙族「虎」",
       "jp": "獣牙族·虎(未変身)",
       "en": "Tiger (Untransformed)"
     },
     "JID_BEAST_C": {
-      "cn": "猫族(未变身)",
+      "cn": "兽牙族「猫・男」",
       "jp": "獣牙族·猫(未変身)",
       "en": "Cat (Untransformed)"
     },
     "JID_BEAST_C/F": {
-      "cn": "猫族(未变身·女)",
+      "cn": "兽牙族「猫・女」",
       "jp": "獣牙族·猫(未変身·女)",
       "en": "Cat (Untransformed, F)"
     },
     "JID_DRAGON_B": {
-      "cn": "黑龙族(未变身)",
+      "cn": "龙鳞族「黑龙」",
       "jp": "竜鱗族·黒(未変身)",
       "en": "Black Dragon (Untransformed)"
     },
     "JID_DRAGON_W": {
-      "cn": "白龙族(未变身)",
+      "cn": "龙鳞族「白龙」",
       "jp": "竜鱗族·白(未変身)",
       "en": "White Dragon (Untransformed)"
     },
     "JID_DRAGON_R": {
-      "cn": "红龙族(未变身)",
+      "cn": "龙鳞族「赤龙・男」",
       "jp": "竜鱗族·赤(未変身)",
       "en": "Red Dragon (Untransformed)"
     },
     "JID_DRAGON_R/F": {
-      "cn": "红龙族(未变身·女)",
+      "cn": "龙鳞族「赤龙・女」",
       "jp": "竜鱗族·赤(未変身·女)",
       "en": "Red Dragon (Untransformed, F)"
     },
     "JID_BIRD_HA": {
-      "cn": "鹰族(未变身)",
+      "cn": "鸟翼族「鹰」",
       "jp": "鳥翼族·鷹(未変身)",
       "en": "Hawk (Untransformed)"
     },
     "JID_BIRD_C": {
-      "cn": "鸦族(未变身)",
+      "cn": "鸟翼族「乌鸦」",
       "jp": "鳥翼族·鴉(未変身)",
       "en": "Crow (Untransformed)"
     },
     "JID_BIRD_HE": {
-      "cn": "鹭族(未变身)",
+      "cn": "鸟翼族「鹭」",
       "jp": "鳥翼族·鷺(未変身)",
       "en": "Heron (Untransformed)"
     },
     "JID_BIRD_HE_W": {
-      "cn": "白鹭族(未变身)",
+      "cn": "鸟翼族「鹭・男」",
       "jp": "鳥翼族·白鷺(未変身)",
       "en": "White Heron (Untransformed)"
     },
     "JID_BIRD_HE_W/F": {
-      "cn": "白鹭族(未变身·女)",
+      "cn": "鸟翼族「鹭・女」",
       "jp": "鳥翼族·白鷺(未変身·女)",
       "en": "White Heron (Untransformed, F)"
     },
     "JID_LION": {
-      "cn": "狮族(变身)",
+      "cn": "狮子",
       "jp": "獣牙族·獅子",
       "en": "Lion (Transformed)"
     },
     "JID_TIGER": {
-      "cn": "虎族(变身)",
+      "cn": "虎",
       "jp": "獣牙族·虎",
       "en": "Tiger (Transformed)"
     },
     "JID_CAT": {
-      "cn": "猫族(变身)",
+      "cn": "猫「男」",
       "jp": "獣牙族·猫",
       "en": "Cat (Transformed)"
     },
     "JID_CAT/F": {
-      "cn": "猫族(变身·女)",
+      "cn": "猫「女」",
       "jp": "獣牙族·猫(女)",
       "en": "Cat (Transformed, F)"
     },
     "JID_BLACKDRAGON": {
-      "cn": "黑龙族(变身)",
+      "cn": "黑龙",
       "jp": "竜鱗族·黒",
       "en": "Black Dragon (Transformed)"
     },
     "JID_WHITEDRAGON": {
-      "cn": "白龙族(变身)",
+      "cn": "白龙",
       "jp": "竜鱗族·白",
       "en": "White Dragon (Transformed)"
     },
     "JID_REDDRAGON": {
-      "cn": "红龙族(变身)",
+      "cn": "赤龙「男」",
       "jp": "竜鱗族·赤",
       "en": "Red Dragon (Transformed)"
     },
     "JID_REDDRAGON/F": {
-      "cn": "红龙族(变身·女)",
+      "cn": "赤龙「女」",
       "jp": "竜鱗族·赤(女)",
       "en": "Red Dragon (Transformed, F)"
     },
     "JID_HAWK": {
-      "cn": "鹰族(变身)",
+      "cn": "鹰",
       "jp": "鳥翼族·鷹",
       "en": "Hawk (Transformed)"
     },
     "JID_CROW": {
-      "cn": "鸦族(变身)",
+      "cn": "乌鸦",
       "jp": "鳥翼族·鴉",
       "en": "Crow (Transformed)"
     },
     "JID_HERON": {
-      "cn": "鹭族(变身)",
+      "cn": "鹭",
       "jp": "鳥翼族·鷺",
       "en": "Heron (Transformed)"
     },
     "JID_HERON_W": {
-      "cn": "白鹭族(变身)",
+      "cn": "鹭「男」",
       "jp": "鳥翼族·白鷺",
       "en": "White Heron (Transformed)"
     },
     "JID_HERON_W/F": {
-      "cn": "白鹭族(变身·女)",
+      "cn": "鹭「女」",
       "jp": "鳥翼族·白鷺(女)",
       "en": "White Heron (Transformed, F)"
     },
     "JID_BIRD_HA_TIB": {
-      "cn": "鹰王(蒂巴恩)",
+      "cn": "鸟翼族「鹰・迪万」",
       "jp": "鳥翼族·鷹(ティバーン)",
       "en": "Hawk King (Tibarn)"
     },
     "JID_HAWK_TIB": {
-      "cn": "鹰王(蒂巴恩·变身)",
+      "cn": "鹰「迪万」",
       "jp": "鷹王(ティバーン)",
       "en": "Hawk King (Tibarn, Transformed)"
     },
     "JID_BIRD_C_NES": {
-      "cn": "鸦王(纳赛尔)",
+      "cn": "鸟翼族「乌鸦・内萨拉」",
       "jp": "鳥翼族·鴉(ナーシル)",
       "en": "Crow King (Naesala)"
     },
     "JID_CROW_NES": {
-      "cn": "鸦王(纳赛尔·变身)",
+      "cn": "乌鸦「内萨拉」",
       "jp": "鴉王(ナーシル)",
       "en": "Crow King (Naesala, Transformed)"
     },
     "JID_BKNIGHT": {
-      "cn": "黑骑士",
+      "cn": "漆黑的骑士",
       "jp": "黒騎士",
       "en": "Black Knight"
+    },
+    "JID_UNUSED0/F": {
+      "cn": "圣骑士「女」",
+      "jp": "",
+      "en": ""
+    },
+    "JID_CITIZEN": {
+      "cn": "JID_CITIZEN",
+      "jp": "",
+      "en": ""
+    },
+    "JID_CITIZEN/F": {
+      "cn": "市民「女」",
+      "jp": "",
+      "en": ""
+    },
+    "JID_CHILD": {
+      "cn": "孩子「男」",
+      "jp": "",
+      "en": ""
+    },
+    "JID_CHILD/F": {
+      "cn": "孩子「女」",
+      "jp": "",
+      "en": ""
+    },
+    "JID_DUMMY": {
+      "cn": "大米",
+      "jp": "",
+      "en": ""
     }
   },
   "persons": {
@@ -554,7 +584,7 @@
       "en": "Ike"
     },
     "PID_TIAMAT": {
-      "cn": "蒂亚玛特",
+      "cn": "迪亚玛特",
       "jp": "ティアマト",
       "en": "Titania"
     },
@@ -564,7 +594,7 @@
       "en": "Soren"
     },
     "PID_MIST": {
-      "cn": "蜜丝特",
+      "cn": "蜜斯特",
       "jp": "ミスト",
       "en": "Mist"
     },
@@ -579,12 +609,12 @@
       "en": "Boyd"
     },
     "PID_BOLE_MAP1": {
-      "cn": "波雷(序章)",
+      "cn": "波雷[MAP1]",
       "jp": "ボーレ(序章)",
       "en": "Boyd (Prologue)"
     },
     "PID_LOFA": {
-      "cn": "罗夫",
+      "cn": "约珐",
       "jp": "ロフ",
       "en": "Rolf"
     },
@@ -594,7 +624,7 @@
       "en": "Shinon"
     },
     "PID_GATRIE": {
-      "cn": "卡特利",
+      "cn": "卡特里",
       "jp": "ガトリー",
       "en": "Gatrie"
     },
@@ -609,12 +639,12 @@
       "en": "Mia"
     },
     "PID_ERINCIA_QUEEN": {
-      "cn": "艾琳希亚",
+      "cn": "艾琳西娅",
       "jp": "エリンシア",
       "en": "Elincia"
     },
     "PID_GEOFFRAY": {
-      "cn": "乔弗雷",
+      "cn": "肖夫雷",
       "jp": "ジョフレ",
       "en": "Geoffrey"
     },
@@ -624,37 +654,37 @@
       "en": "Bastian"
     },
     "PID_KEVIN": {
-      "cn": "凯文",
+      "cn": "凯宾",
       "jp": "ケビン",
       "en": "Kieran"
     },
     "PID_LUCHINO": {
-      "cn": "露琪诺",
+      "cn": "露奇诺",
       "jp": "ルキノ",
       "en": "Lucia"
     },
     "PID_DALAHOWE": {
-      "cn": "达尔豪",
+      "cn": "塔拉哈乌",
       "jp": "ダラホウ",
       "en": "Devdan"
     },
     "PID_CALILL": {
-      "cn": "卡莉尔",
+      "cn": "卡莉鲁",
       "jp": "カリル",
       "en": "Calill"
     },
     "PID_LARGO": {
-      "cn": "拉戈",
+      "cn": "拉尔哥",
       "jp": "ラルゴ",
       "en": "Largo"
     },
     "PID_VOKE": {
-      "cn": "沃克",
+      "cn": "佛尔加",
       "jp": "ヴォルケ",
       "en": "Volke"
     },
     "PID_NEPENEE": {
-      "cn": "妮菲妮",
+      "cn": "奈菲妮",
       "jp": "ネフェニー",
       "en": "Nephenee"
     },
@@ -664,7 +694,7 @@
       "en": "Brom"
     },
     "PID_ZIHARK": {
-      "cn": "齐哈克",
+      "cn": "崔哈克",
       "jp": "ジル",
       "en": "Zihark"
     },
@@ -674,7 +704,7 @@
       "en": "Ilyana"
     },
     "PID_SOTHE": {
-      "cn": "桑斯",
+      "cn": "萨扎",
       "jp": "サザ",
       "en": "Sothe"
     },
@@ -689,12 +719,12 @@
       "en": "Jill"
     },
     "PID_TAURONEO": {
-      "cn": "陶罗内奥",
+      "cn": "塔乌罗尼奥",
       "jp": "タウロニオ",
       "en": "Tauroneo"
     },
     "PID_TANIS": {
-      "cn": "塔妮丝",
+      "cn": "塔妮斯",
       "jp": "タニス",
       "en": "Tanith"
     },
@@ -704,22 +734,22 @@
       "en": "Marcia"
     },
     "PID_MAKAROV": {
-      "cn": "马卡洛夫",
+      "cn": "马格罗夫",
       "jp": "マカロフ",
       "en": "Makalov"
     },
     "PID_TOPUCK": {
-      "cn": "托帕克",
+      "cn": "多邦克",
       "jp": "トパック",
       "en": "Tormod"
     },
     "PID_MWARIM": {
-      "cn": "穆瓦林",
+      "cn": "木华黎",
       "jp": "ムワリム",
       "en": "Muarim"
     },
     "PID_SOANVALCKE": {
-      "cn": "斯特凡",
+      "cn": "索恩哈鲁凯",
       "jp": "ソアンヴァルケ",
       "en": "Stefan"
     },
@@ -729,17 +759,17 @@
       "en": "Astrid"
     },
     "PID_ENA": {
-      "cn": "艾娜",
+      "cn": "伊娜",
       "jp": "エナ",
       "en": "Ena"
     },
     "PID_NASIR": {
-      "cn": "纳西尔",
+      "cn": "奈西尔",
       "jp": "ナーシル",
       "en": "Nasir"
     },
     "PID_GIFFCA": {
-      "cn": "吉夫卡",
+      "cn": "吉布卡",
       "jp": "ギフカ",
       "en": "Giffca"
     },
@@ -754,27 +784,27 @@
       "en": "Mordecai"
     },
     "PID_LAY": {
-      "cn": "莱伊",
+      "cn": "莱",
       "jp": "ラーイ",
       "en": "Ranulf"
     },
     "PID_TIBARN": {
-      "cn": "蒂巴恩",
+      "cn": "迪万",
       "jp": "ティバーン",
       "en": "Tibarn"
     },
     "PID_VULCI": {
-      "cn": "乌尔奇",
+      "cn": "乌鲁基",
       "jp": "ヴルチ",
       "en": "Ulki"
     },
     "PID_JANAFF": {
-      "cn": "贾纳夫",
+      "cn": "亚那布",
       "jp": "ジャナフ",
       "en": "Janaff"
     },
     "PID_NAESALA": {
-      "cn": "纳赛尔",
+      "cn": "内萨拉",
       "jp": "ナーシル",
       "en": "Naesala"
     },
@@ -784,27 +814,27 @@
       "en": "Reyson"
     },
     "PID_HIBUCCHI": {
-      "cn": "哈维迪",
+      "cn": "比布迪",
       "jp": "ヒブッチ",
       "en": "Havetti"
     },
     "PID_NEDATA": {
-      "cn": "内达塔",
+      "cn": "内塔达",
       "jp": "ネダタ",
       "en": "Nedata"
     },
     "PID_IKANAU": {
-      "cn": "伊卡瑙",
+      "cn": "伊卡那乌",
       "jp": "イカナウ",
       "en": "Ikanau"
     },
     "PID_ZAWANAR": {
-      "cn": "扎瓦纳",
+      "cn": "萨瓦纳",
       "jp": "ザワナル",
       "en": "Zawana"
     },
     "PID_MAIZIN": {
-      "cn": "迈金",
+      "cn": "麦金",
       "jp": "マイジン",
       "en": "Maijin"
     },
@@ -814,7 +844,7 @@
       "en": "Kamura"
     },
     "PID_DAKKOWA": {
-      "cn": "达科瓦",
+      "cn": "塔哥乌",
       "jp": "ダッコワ",
       "en": "Dakova"
     },
@@ -824,122 +854,122 @@
       "en": "Balmer"
     },
     "PID_KOTAHU": {
-      "cn": "科塔夫",
+      "cn": "库夫",
       "jp": "コタフ",
       "en": "Kotaff"
     },
     "PID_NOSHITHI": {
-      "cn": "诺里斯",
+      "cn": "诺西多比",
       "jp": "ノシッチ",
       "en": "Norris"
     },
     "PID_DANOMIRU": {
-      "cn": "达诺米尔",
+      "cn": "塔诺米尔",
       "jp": "ダノミル",
       "en": "Danomill"
     },
     "PID_MAKKOYAR": {
-      "cn": "马科亚",
+      "cn": "玛格亚",
       "jp": "マッコヤル",
       "en": "Mackoya"
     },
     "PID_CHIGU": {
-      "cn": "席格",
+      "cn": "西卡",
       "jp": "チグ",
       "en": "Seeker"
     },
     "PID_EMAKOU": {
-      "cn": "艾米尔",
+      "cn": "艾马科",
       "jp": "エマコウ",
       "en": "Emil"
     },
     "PID_GASIRAMA": {
-      "cn": "加西拉马",
+      "cn": "卡基拉马",
       "jp": "ガシラマ",
       "en": "Gashilama"
     },
     "PID_KIMARSI": {
-      "cn": "基玛尔西",
+      "cn": "基玛西",
       "jp": "キマルシ",
       "en": "Kimaarsi"
     },
     "PID_SIHARAMU": {
-      "cn": "斯哈拉姆",
+      "cn": "西巴拉姆",
       "jp": "シハラム",
       "en": "Shiharam"
     },
     "PID_HOMAS": {
-      "cn": "霍马萨",
+      "cn": "霍曼萨",
       "jp": "ホマス",
       "en": "Homasa"
     },
     "PID_KAYACHE": {
-      "cn": "卡亚切",
+      "cn": "卡亚奇艾",
       "jp": "カヤチェ",
       "en": "Kayachey"
     },
     "PID_KASATAI": {
-      "cn": "卡萨泰",
+      "cn": "卡萨坦",
       "jp": "カサタイ",
       "en": "Kasatai"
     },
     "PID_SIRKUKO": {
-      "cn": "谢弗",
+      "cn": "西克空",
       "jp": "シルクコ",
       "en": "Schaeffer"
     },
     "PID_RIHITORU": {
-      "cn": "里卡德",
+      "cn": "利比多尔",
       "jp": "リヒトル",
       "en": "Rikard"
     },
     "PID_HAHUXEDO": {
-      "cn": "哈费德",
+      "cn": "哈非艾德",
       "jp": "ハフゼド",
       "en": "Hafedd"
     },
     "PID_GURORMERU": {
-      "cn": "格罗梅尔",
+      "cn": "克隆美尔",
       "jp": "グロルメル",
       "en": "Gromell"
     },
     "PID_KOYUJO": {
-      "cn": "海德温",
+      "cn": "哥尤修",
       "jp": "コユジョ",
       "en": "Heddwyn"
     },
     "PID_BURAISU": {
-      "cn": "布莱斯",
+      "cn": "普莱斯",
       "jp": "ブライス",
       "en": "Bryce"
     },
     "PID_OLIVER": {
-      "cn": "奥利弗",
+      "cn": "奥利沃",
       "jp": "オリバー",
       "en": "Oliver"
     },
     "PID_PRAGUE": {
-      "cn": "佩特琳",
+      "cn": "普拉哈",
       "jp": "ペトリン",
       "en": "Petrine"
     },
     "PID_BEUFORRES": {
-      "cn": "贝特拉姆",
+      "cn": "贝乌菲奥雷斯",
       "jp": "ベオフォレス",
       "en": "Bertram"
     },
     "PID_GREIL": {
-      "cn": "格雷尔",
+      "cn": "古雷尔",
       "jp": "グレイル",
       "en": "Greil"
     },
     "PID_BLACKKNIGHT": {
-      "cn": "漆黑骑士",
+      "cn": "漆黑的骑士",
       "jp": "黒騎士",
       "en": "Black Knight"
     },
     "PID_ASHNARD": {
-      "cn": "亚修纳德",
+      "cn": "阿修纳德",
       "jp": "アシュナード",
       "en": "Ashnard"
     },
@@ -957,6 +987,1306 @@
       "cn": "莎娜琪",
       "jp": "サナキ",
       "en": "Sanaki"
+    },
+    "PID_GREIL_MAP1": {
+      "cn": "古雷尔[MAP1]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DUMMY1": {
+      "cn": "？？？",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DUMMY2": {
+      "cn": "？？？",
+      "jp": "",
+      "en": ""
+    },
+    "PID_CEPHERAN_FAKE": {
+      "cn": "塞菲兰[FAKE]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZELGIUS": {
+      "cn": "塞鲁基乌斯",
+      "jp": "",
+      "en": ""
+    },
+    "PID_SIGRUN": {
+      "cn": "希格伦",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DUMMY4": {
+      "cn": "？？？",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LEKAIN": {
+      "cn": "鲁刚",
+      "jp": "",
+      "en": ""
+    },
+    "PID_HETZEL": {
+      "cn": "贝兹艾尔",
+      "jp": "",
+      "en": ""
+    },
+    "PID_HEATHER": {
+      "cn": "贝莎",
+      "jp": "",
+      "en": ""
+    },
+    "PID_MELTY": {
+      "cn": "神使亲卫队员",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DUMMY5": {
+      "cn": "？？？",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DUMMY6": {
+      "cn": "？？？",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DUMMY7": {
+      "cn": "？？？",
+      "jp": "",
+      "en": ""
+    },
+    "PID_NEALUCHI": {
+      "cn": "尼阿鲁奇",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LEARNE": {
+      "cn": "莉阿妮",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_M": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_BOSS": {
+      "cn": "迪恩将领",
+      "jp": "",
+      "en": ""
+    },
+    "PID_B_BOSS": {
+      "cn": "贝格尼奥将领",
+      "jp": "",
+      "en": ""
+    },
+    "PID_B_ZAKO": {
+      "cn": "贝格尼奥兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_C_BOSS": {
+      "cn": "克利米亚将领",
+      "jp": "",
+      "en": ""
+    },
+    "PID_C_ZAKO": {
+      "cn": "克利米亚兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_F_BOSS": {
+      "cn": "菲尼吉斯将领",
+      "jp": "",
+      "en": ""
+    },
+    "PID_F_ZAKO": {
+      "cn": "菲尼吉斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_K_BOSS": {
+      "cn": "吉鲁瓦斯将领",
+      "jp": "",
+      "en": ""
+    },
+    "PID_K_ZAKO": {
+      "cn": "吉鲁瓦斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_G_BOSS": {
+      "cn": "卡利亚将领",
+      "jp": "",
+      "en": ""
+    },
+    "PID_G_ZAKO": {
+      "cn": "卡利亚兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_O_BOSS": {
+      "cn": "蛮族将领",
+      "jp": "",
+      "en": ""
+    },
+    "PID_O_ZAKO": {
+      "cn": "蛮族兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_D_ZAKO_11_1": {
+      "cn": "看守",
+      "jp": "",
+      "en": ""
+    },
+    "PID_D_ZAKO_11_2": {
+      "cn": "看守",
+      "jp": "",
+      "en": ""
+    },
+    "PID_D_ZAKO_11_3": {
+      "cn": "看守",
+      "jp": "",
+      "en": ""
+    },
+    "PID_D_ZAKO_11_4": {
+      "cn": "看守",
+      "jp": "",
+      "en": ""
+    },
+    "PID_O_ZAKO_2_H": {
+      "cn": "卡利瓦山贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_8_H": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_8_H_EV1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_8_H_EV2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_8_H_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_8_H_AM": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_8_H_A": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV4": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV5": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV6": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV7": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV8": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV9": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ZAKO_EV10": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_4": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_5": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_6": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_7": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_8": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_HAL_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC_4": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SNP_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARM_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_GNL_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SKN_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SKN_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_PLD_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DKN_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DMS_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_MAG_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SAG_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_PRS_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_BSH_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_B_ZAKO_EV1": {
+      "cn": "贝格尼奥兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_B_ZAKO_EV2": {
+      "cn": "贝格尼奥兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_B_ZAKO_EV3": {
+      "cn": "贝格尼奥兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_K_ZAKO_EV1": {
+      "cn": "吉鲁瓦斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_K_ZAKO_EV2": {
+      "cn": "吉鲁瓦斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_K_ZAKO_EV3": {
+      "cn": "吉鲁瓦斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_G_ZAKO_EV1": {
+      "cn": "吉鲁瓦斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_G_ZAKO_EV2": {
+      "cn": "吉鲁瓦斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_G_ZAKO_EV3": {
+      "cn": "吉鲁瓦斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_G_ZAKO_EV4": {
+      "cn": "吉鲁瓦斯兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV1": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV2": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV3": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV4": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV5": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV6": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV7": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV8": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV9": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV10": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV11": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_PEOPLE_EV12": {
+      "cn": "村人",
+      "jp": "",
+      "en": ""
+    },
+    "PID_IKE_EV": {
+      "cn": "艾克[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_GREIL_EV": {
+      "cn": "古雷尔[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TIAMAT_EV": {
+      "cn": "迪亚玛特[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_SENERIO_EV": {
+      "cn": "塞内利奥[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_SENERIO_EV2": {
+      "cn": "塞内利奥[EV2]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_MIST_EV": {
+      "cn": "蜜斯特[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_OSCAR_EV": {
+      "cn": "奥斯卡[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_BOLE_EV": {
+      "cn": "波雷[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_KILROY_EV": {
+      "cn": "基尔罗伊[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_CHINON_EV": {
+      "cn": "希浓[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_GATRIE_EV": {
+      "cn": "卡特里[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TOPUCK_EV": {
+      "cn": "多邦克[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_GEOFFRAY_EV": {
+      "cn": "肖夫雷[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ULYSSES_EV": {
+      "cn": "尤利西斯[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LUCHINO_EV": {
+      "cn": "露奇诺[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_NASIR_EV": {
+      "cn": "奈西尔[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LOFA_EV": {
+      "cn": "约珐[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_SW_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_SW_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_SW_G": {
+      "cn": "其他",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_FI_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_FI_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_BD_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_SK_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_PK_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_DK_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_DK_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_PR_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_BS_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_BS_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_TH_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_BC_Y": {
+      "cn": "友军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_BB_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_AR_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_AR_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_MG_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_MG_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_02_BANDIT_MOU": {
+      "cn": "山贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_03_BANDIT_MOU": {
+      "cn": "山贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_04_BANDIT_SEA": {
+      "cn": "海盗",
+      "jp": "",
+      "en": ""
+    },
+    "PID_BANDIT_SEA": {
+      "cn": "海盗",
+      "jp": "",
+      "en": ""
+    },
+    "PID_BANDIT_SEA_EV1": {
+      "cn": "海盗",
+      "jp": "",
+      "en": ""
+    },
+    "PID_BANDIT_MOU": {
+      "cn": "山贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_BANDIT_MOU_EV1": {
+      "cn": "山贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_M_STR_1": {
+      "cn": "卡利瓦山贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_M_STR_2": {
+      "cn": "卡利瓦山贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_M_STR_3": {
+      "cn": "卡利瓦山贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_12_SELFDEFENCE": {
+      "cn": "自卫团",
+      "jp": "",
+      "en": ""
+    },
+    "PID_12_THIEF": {
+      "cn": "盗贼",
+      "jp": "",
+      "en": ""
+    },
+    "PID_15_PEDDLING": {
+      "cn": "商队",
+      "jp": "",
+      "en": ""
+    },
+    "PID_16_LIBERATION": {
+      "cn": "拉格兹解放军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_178_TANAS": {
+      "cn": "塔那斯公爵军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_15_PEDDLING_T": {
+      "cn": "半成兽",
+      "jp": "",
+      "en": ""
+    },
+    "PID_16_LIBERATION_1": {
+      "cn": "拉格兹解放军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_16_LIBERATION_2": {
+      "cn": "拉格兹解放军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_16_LIBERATION_3": {
+      "cn": "拉格兹解放军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_16_LIBERATION_4": {
+      "cn": "拉格兹解放军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_178_TANAS_1": {
+      "cn": "塔那斯公爵军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_178_TANAS_2": {
+      "cn": "塔那斯公爵军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_178_TANAS_3": {
+      "cn": "塔那斯公爵军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_N_07_DAYNE_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_N_07_DAYNE_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_N_08_DAYNE_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_N_08_DAYNE_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_N_08_DAYNE_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SRD": {
+      "cn": "迪恩佣兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SMS": {
+      "cn": "迪恩佣兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_HAL": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_FIG": {
+      "cn": "迪恩佣兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_WAR": {
+      "cn": "迪恩佣兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SNP": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARM": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_GNL": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SKN": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_PLD": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DKN": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DMS": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_MAG": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SAG": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_PRS": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_BSH": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_02_BANDIT_EV": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_9": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SOL_10": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC_5": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC_6": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC_7": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_ARC_8": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SKN_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SKN_4": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_SKN_5": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_OLDMAN_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DKN_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DKN_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DKN_4": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DKN_5": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_DKN_6": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ASHNARD2": {
+      "cn": "阿修纳德[2]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_15_DUMMYT": {
+      "cn": "商队",
+      "jp": "",
+      "en": ""
+    },
+    "PID_IKE_CHILD_EV": {
+      "cn": "艾克[CHILD_EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_GREIL_SEPIA_EV": {
+      "cn": "古雷尔[SEPIA_EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LETHE_EV": {
+      "cn": "蕾迪[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_MORDY_EV": {
+      "cn": "摩迪[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LAY_EV": {
+      "cn": "莱[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LAY_EV2": {
+      "cn": "莱[EV2]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LETHE_MAP9": {
+      "cn": "蕾迪[MAP9]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LEARNE_EV": {
+      "cn": "莉阿妮[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ENA_EV": {
+      "cn": "伊娜[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ERINCIA_QUEEN_EV": {
+      "cn": "艾琳西娅[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_LAY_EV3": {
+      "cn": "莱[EV3]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TIBARN_EV": {
+      "cn": "迪万[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_RIEUSION_EV": {
+      "cn": "琉西昂[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ENA_EV2": {
+      "cn": "伊娜[EV2]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TIBARN_EV2": {
+      "cn": "迪万[EV2]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_WAYU_EV": {
+      "cn": "瓦尤[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_SO_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_SO2_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_SO2_G": {
+      "cn": "其他",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_SK_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_PK_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_BB2_R": {
+      "cn": "敌军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TUT_BC_B": {
+      "cn": "自军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_23_PAL_PRS": {
+      "cn": "帕鲁梅尼僧",
+      "jp": "",
+      "en": ""
+    },
+    "PID_23_PAL_BSH": {
+      "cn": "帕鲁梅尼僧",
+      "jp": "",
+      "en": ""
+    },
+    "PID_23_PAL_BSH_EV": {
+      "cn": "多梅纳米",
+      "jp": "",
+      "en": ""
+    },
+    "PID_23_SIK_BUKA1": {
+      "cn": "迪恩佣兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_23_SIK_BUKA2": {
+      "cn": "迪恩佣兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_23_SIK_BUKA3": {
+      "cn": "迪恩佣兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_RAJAION": {
+      "cn": "拉夏奥",
+      "jp": "",
+      "en": ""
+    },
+    "PID_GIFFCA_EV": {
+      "cn": "吉布卡[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_NAESALA_EV": {
+      "cn": "内萨拉[EV]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_BLACKKNIGHT_EV1": {
+      "cn": "漆黑的骑士[EV1]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_BLACKKNIGHT_EV2": {
+      "cn": "漆黑的骑士[EV2]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_IKE_EV1": {
+      "cn": "艾克[EV1]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_IKE_EV2": {
+      "cn": "艾克[EV2]",
+      "jp": "",
+      "en": ""
+    },
+    "PID_MAP21_DKN_1": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_MAP21_DKN_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_MAP21_DKN_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TRIAL1_BUKA": {
+      "cn": "兵卒",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TRIAL1_BOSS": {
+      "cn": "军将",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TRIAL2_BUKA": {
+      "cn": "兵卒",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TRIAL3_BUKA": {
+      "cn": "军将",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TRIAL4_BUKA": {
+      "cn": "兵卒",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TRIAL5_BOSS": {
+      "cn": "军将",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TRIAL6_BUKA": {
+      "cn": "兵卒",
+      "jp": "",
+      "en": ""
+    },
+    "PID_TRIAL6_BOSS": {
+      "cn": "军将",
+      "jp": "",
+      "en": ""
+    },
+    "PID_14_SRD": {
+      "cn": "谜之军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_14_SOL": {
+      "cn": "谜之军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_14_HAL": {
+      "cn": "谜之军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_14_FIG": {
+      "cn": "谜之军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_14_ARC": {
+      "cn": "谜之军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_14_SNP": {
+      "cn": "谜之军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_14_MAG": {
+      "cn": "谜之军",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ACTORMANQUE_D": {
+      "cn": "半成兽",
+      "jp": "",
+      "en": ""
+    },
+    "PID_ACTORMANQUE_P": {
+      "cn": "半成兽",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_PLD_2": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
+    },
+    "PID_DAYNE_PLD_3": {
+      "cn": "迪恩兵",
+      "jp": "",
+      "en": ""
     }
   },
   "affinities": {
@@ -971,40 +2301,40 @@
     "telius": "地"
   },
   "skills": {
-    "SID_HERO": "主角印",
+    "SID_HERO": "主人公",
     "SID_FEMALE": "女性",
     "SID_HIGHER": "上级职业",
-    "SID_TWICE": "再行动",
-    "SID_FLY": "飞行",
-    "SID_VILLAGEDESTROY": "破坏村庄",
-    "SID_BOSS": "Boss",
-    "SID_FINAL": "最终Boss",
-    "SID_ANIMALIZE": "兽化",
-    "SID_LYCANTHROPE": "暴走",
-    "SID_FIXEDBEAST": "固定兽化",
+    "SID_TWICE": "再移动",
+    "SID_FLY": "飞行系",
+    "SID_VILLAGEDESTROY": "村庄破坏",
+    "SID_BOSS": "BOSS",
+    "SID_FINAL": "最终BOSS",
+    "SID_ANIMALIZE": "兽化职业",
+    "SID_LYCANTHROPE": "兽化中",
+    "SID_FIXEDBEAST": "兽固定",
     "SID_ELITE": "精英",
-    "SID_TURNREGENE": "恢复",
-    "SID_BARGAIN": "议价",
+    "SID_TURNREGENE": "回复",
+    "SID_BARGAIN": "打折",
     "SID_SWIFT": "俊足",
-    "SID_WLUPTOS": "武器熟练度+",
+    "SID_WLUPTOS": "大魔法",
     "SID_BLAVE": "勇将",
-    "SID_IMPREGNABLE": "不破之盾",
-    "SID_TEMPER": "气分屋",
+    "SID_IMPREGNABLE": "铁壁",
+    "SID_TEMPER": "大起落",
     "SID_CALM": "安定",
-    "SID_FLYTHRU": "飞越",
-    "SID_WALKTHRU": "穿越",
-    "SID_RESCUEP": "守护者",
-    "SID_HANDI": "手下留情",
-    "SID_CHANT": "歌唱",
-    "SID_CHANTHP": "应援·HP",
-    "SID_CHANTSTR": "应援·力",
-    "SID_CHANTMPOW": "应援·魔",
-    "SID_CHANTTECH": "应援·技",
-    "SID_CHANTQUICK": "应援·速",
-    "SID_CHANTLUCK": "应援·幸",
-    "SID_CHANTDEF": "应援·防",
-    "SID_CHANTMDEF": "应援·魔防",
-    "SID_EQUIPFANG": "牙装备",
+    "SID_FLYTHRU": "飞行",
+    "SID_WALKTHRU": "突破",
+    "SID_RESCUEP": "救援",
+    "SID_HANDI": "放水",
+    "SID_CHANT": "再行动",
+    "SID_CHANTHP": "ＨＰ之歌",
+    "SID_CHANTSTR": "力之歌",
+    "SID_CHANTMPOW": "魔力之歌",
+    "SID_CHANTTECH": "技之歌",
+    "SID_CHANTQUICK": "速度之歌",
+    "SID_CHANTLUCK": "幸运之歌",
+    "SID_CHANTDEF": "守备之歌",
+    "SID_CHANTMDEF": "魔防之歌",
+    "SID_EQUIPFANG": "兽装备",
     "SID_EQUIPKNIFE": "轻器装备",
     "SID_EQUIPLIGHT": "光装备",
     "SID_EQSW": "剑装备",
@@ -1025,251 +2355,251 @@
     "SID_ASSASSINATE": "瞬杀",
     "SID_WEAPONDESTROY": "武器破坏",
     "SID_SNIPE": "狙击",
-    "SID_CHAOS": "混乱",
+    "SID_CHAOS": "混沌",
     "SID_COUNTER": "反击",
     "SID_RUMBLE": "鸣动",
     "SID_IMPACT": "冲击",
     "SID_CHARISMA": "魅力",
     "SID_HORROR": "恐怖",
-    "SID_STEAL": "盗取",
+    "SID_STEAL": "偷盗",
     "SID_PROVOKE": "挑衅",
     "SID_SHADE": "影",
-    "SID_GAMBLE": "一击屋",
-    "SID_ABSMOVE": "绝对行动",
-    "SID_FAIRNESS": "公平",
-    "SID_CONFRONT": "对峙",
+    "SID_GAMBLE": "舍身击",
+    "SID_ABSMOVE": "绝对移动",
+    "SID_FAIRNESS": "能力胜负",
+    "SID_CONFRONT": "单挑",
     "SID_FLUTTER": "疾风之刃",
-    "SID_TACKLE": "撞击",
-    "SID_TACKLE2": "强力撞击",
+    "SID_TACKLE": "体撞",
+    "SID_TACKLE2": "冲撞",
     "SID_SNARL": "咆哮",
     "SID_EVILEYE": "邪眼",
     "SID_REINFORCEMENTS": "援军",
     "SID_EARTHBLESSING": "地之祝福",
-    "SID_SKYBLESSING": "天之祝福",
+    "SID_SKYBLESSING": "空之祝福",
     "SID_FRAC90": "大器晚成",
     "SID_SUNMOON": "天空",
     "SID_EVENTCC": "事件转职",
     "SID_SUMMONED": "召唤",
     "SID_SHOOT": "射击",
-    "SID_KEY50": "钥匙·50",
+    "SID_KEY50": "50G开锁",
     "SID_TELEGNOSIS": "千里眼",
     "SID_BIGEAR": "顺风耳",
-    "SID_GODDESSBLESS": "女神之加护",
-    "SID_TRI_A": "三角攻击A",
-    "SID_TRI_B": "三角攻击B",
-    "SID_EQ_A": "标记A(未使用)",
-    "SID_EQ_B": "标记B(未使用)",
-    "SID_EQ_C": "标记·兽人王",
-    "SID_EQ_D": "标记·骑乘/重装",
-    "SID_TEMP_ON_DIE": "濒死强化",
+    "SID_GODDESSBLESS": "女神的加护",
+    "SID_TRI_A": "三角攻击「天马」",
+    "SID_TRI_B": "三角攻击「兄弟」",
+    "SID_EQ_A": "专用Ａ「约珐之弓」",
+    "SID_EQ_B": "专用Ｂ「阿米迪」",
+    "SID_EQ_C": "专用Ｃ「化身的腕轮」",
+    "SID_EQ_D": "专用Ｄ「骑士守护」",
+    "SID_TEMP_ON_DIE": "装死",
     "SID_BRIGHTNESS": "阳光",
-    "SID_KEY0": "钥匙·0",
-    "SID_IMMORTAL": "不死",
-    "SID_EQREV_A": "装备反·A",
-    "SID_WEAK_A": "弱点·A",
-    "SID_AHIMSA": "不杀"
+    "SID_KEY0": "免费开锁",
+    "SID_IMMORTAL": "不死身",
+    "SID_EQREV_A": "逆专用Ａ",
+    "SID_WEAK_A": "弱点Ａ",
+    "SID_AHIMSA": "不杀生"
   },
   "items": {
-    "IID_ALONDITE": "艾塔尔德",
+    "IID_ALONDITE": "艾塔鲁德",
     "IID_AMBUSH": "待伏之书",
     "IID_ANGELROBE": "天使之衣",
-    "IID_ANGER": "怒气之书",
-    "IID_ARCHERSRING": "弓兵指环",
-    "IID_ARMORBREAK": "破甲重枪",
-    "IID_ARMORKILLER": "破甲剑",
-    "IID_ARMORSRING": "重装指环",
-    "IID_AURA": "圣光",
-    "IID_AXEBASTER": "破斧枪",
-    "IID_BEASTAXE": "屠兽斧",
-    "IID_BERSERK": "狂战士杖",
+    "IID_ANGER": "怒之书",
+    "IID_ARCHERSRING": "弓兵的腕轮",
+    "IID_ARMORBREAK": "贯穿之枪",
+    "IID_ARMORKILLER": "斩铁剑",
+    "IID_ARMORSRING": "重步兵的腕轮",
+    "IID_AURA": "曌光",
+    "IID_AXEBASTER": "短枪",
+    "IID_BEASTAXE": "拉格兹必杀斧",
+    "IID_BERSERK": "狂乱之杖",
     "IID_BIGEAR": "顺风耳之书",
     "IID_BLAVE": "勇将之书",
     "IID_BLIZZARD": "暴风雪",
-    "IID_BLUEGEM": "蓝宝石",
-    "IID_BODYRING": "体格之雫",
-    "IID_BOLGANONE": "灼热",
+    "IID_BLUEGEM": "青之宝玉",
+    "IID_BODYRING": "石像的碎片",
+    "IID_BOLGANONE": "熔岩",
     "IID_BOOTS": "靴子",
-    "IID_BRAVEAXE": "勇者斧",
-    "IID_BRAVEBOW": "勇者弓",
-    "IID_BRAVELANCE": "勇者枪",
-    "IID_BRAVESWORD": "勇者剑",
+    "IID_BRAVEAXE": "勇者之斧",
+    "IID_BRAVEBOW": "勇者之弓",
+    "IID_BRAVELANCE": "勇者之枪",
+    "IID_BRAVESWORD": "勇者之剑",
     "IID_BRONZEAXE": "青铜斧",
     "IID_BRONZESWORD": "青铜剑",
-    "IID_CALM": "平静之书",
-    "IID_CATNAIL": "猫之爪",
-    "IID_CHANGERING": "化身指环",
-    "IID_CHANGERING2": "兽化指环",
-    "IID_CHANGESTONE": "兽石",
-    "IID_CHANGESTONE1": "兽石(单次)",
-    "IID_CHANT": "再动之书",
-    "IID_COIN": "硬币",
-    "IID_CONTINUATION": "连击之书",
+    "IID_CALM": "安定之书",
+    "IID_CATNAIL": "爪「猫」",
+    "IID_CHANGERING": "半化身的腕轮",
+    "IID_CHANGERING2": "化身的腕轮",
+    "IID_CHANGESTONE": "化身之石",
+    "IID_CHANGESTONE1": "化身之石",
+    "IID_CHANT": "再行动之歌",
+    "IID_COIN": "金币",
+    "IID_CONTINUATION": "连续之书",
     "IID_COUNTER": "反击之书",
-    "IID_CRIMEASWORD": "阿米提",
-    "IID_CROWBEAK": "鸦之喙",
-    "IID_CROWBEAK_KING": "鸦王之喙",
-    "IID_DAGGER": "匕首",
-    "IID_DEFDROP": "守备之雫",
-    "IID_DEFENCE": "护卫之书",
-    "IID_DELPHISHIELD": "戴尔菲之盾",
-    "IID_DETOXDRUG": "解毒药",
-    "IID_DEVILAXE": "恶魔斧",
-    "IID_DOORKEY": "门钥匙",
-    "IID_DRAGONKNIGHTSRING": "飞龙骑士指环",
-    "IID_DRAGONRANCE": "屠龙枪",
+    "IID_CRIMEASWORD": "阿米迪",
+    "IID_CROWBEAK": "喙「乌鸦」",
+    "IID_CROWBEAK_KING": "喙「乌鸦·内萨拉」",
+    "IID_DAGGER": "短刀",
+    "IID_DEFDROP": "龙盾",
+    "IID_DEFENCE": "取消之书",
+    "IID_DELPHISHIELD": "全特效守护",
+    "IID_DETOXDRUG": "解毒草",
+    "IID_DEVILAXE": "恶魔之斧",
+    "IID_DOORKEY": "门的钥匙",
+    "IID_DRAGONKNIGHTSRING": "龙骑士的腕轮",
+    "IID_DRAGONRANCE": "拉格兹必杀枪",
     "IID_DRAGONSHIELD": "龙之盾",
     "IID_DRAGORANCE": "对兽枪",
-    "IID_ELFIRE": "真火球",
-    "IID_ELITE": "精锐之书",
-    "IID_ELIXIR": "万灵药",
-    "IID_ELTHUNDER": "闪电",
-    "IID_ELWIND": "旋风",
+    "IID_ELFIRE": "业炎",
+    "IID_ELITE": "精英之书",
+    "IID_ELIXIR": "特效药",
+    "IID_ELTHUNDER": "轰雷",
+    "IID_ELWIND": "烈风",
     "IID_ESOTERIC": "奥义之书",
-    "IID_FAIRNESS": "胜负之书",
-    "IID_FIGHTERSRING": "战士指环",
-    "IID_FIMBULVETR": "芬布尔",
-    "IID_FIRE": "火球",
-    "IID_FLUTTER": "扰乱杖",
-    "IID_FORBLAZE": "佛布拉斯",
+    "IID_FAIRNESS": "能力胜负之书",
+    "IID_FIGHTERSRING": "战士的腕轮",
+    "IID_FIMBULVETR": "岚刃",
+    "IID_FIRE": "火炎",
+    "IID_FLUTTER": "疾风之刃",
+    "IID_FORBLAZE": "阳炎",
     "IID_FRAC90": "大器晚成之书",
     "IID_FRAMELANCE": "火焰枪",
-    "IID_GAMBLE": "赌博之书",
+    "IID_GAMBLE": "舍身击之书",
     "IID_GODDESSICON": "女神像",
     "IID_GODDESSROD": "女神之杖",
     "IID_GRASP": "见切之书",
     "IID_GURGURANT": "古鲁古兰特",
-    "IID_HAMMER": "战锤",
-    "IID_HAMMERNE": "修复杖",
-    "IID_HANDAXE": "手斧",
-    "IID_HANDSPEAR": "手枪",
-    "IID_HAWKBEAK": "鹰之喙",
-    "IID_HAWKBEAK_KING": "鹰王之喙",
+    "IID_HAMMER": "大锤",
+    "IID_HAMMERNE": "修理之杖",
+    "IID_HANDAXE": "投斧",
+    "IID_HANDSPEAR": "投枪",
+    "IID_HAWKBEAK": "喙「鹰」",
+    "IID_HAWKBEAK_KING": "喙「鹰·迪万」",
     "IID_HOLYWATER": "圣水",
     "IID_HORROR": "恐怖之书",
-    "IID_HORSEKILLER": "破骑剑",
-    "IID_HPDROP": "HP之雫",
-    "IID_IMPREGNABLE": "金刚之书",
-    "IID_IRONARCH": "铁弩车",
+    "IID_HORSEKILLER": "长柄刀",
+    "IID_HPDROP": "天使之衣",
+    "IID_IMPREGNABLE": "铁壁之书",
+    "IID_IRONARCH": "铁弩",
     "IID_IRONAXE": "铁斧",
-    "IID_IRONBLADE": "铁刀",
+    "IID_IRONBLADE": "铁之大剑",
     "IID_IRONBOW": "铁弓",
     "IID_IRONLANCE": "铁枪",
     "IID_IRONSWORD": "铁剑",
-    "IID_JACKLIGHT": "火炬",
-    "IID_KILLERARCH": "必杀弩车",
+    "IID_JACKLIGHT": "火把",
+    "IID_KILLERARCH": "必杀弩",
     "IID_KILLERAXE": "必杀斧",
     "IID_KILLERBOW": "必杀弓",
     "IID_KILLERLANCE": "必杀枪",
-    "IID_KILLSWORD": "必杀剑",
-    "IID_KNIFE": "短刀",
-    "IID_KNIGHTKILLER": "破甲枪",
-    "IID_KNIGHTRING": "骑士指环",
-    "IID_KNIGHTSHIELD": "骑士护符",
-    "IID_LIGHTNING": "闪光",
-    "IID_LIGHTNINGBOW": "光辉弓",
-    "IID_LIONNAIL": "狮王之爪",
-    "IID_LIVE": "治愈杖",
-    "IID_LOFABOW": "罗尔弓",
-    "IID_LONGARCH": "弩车",
+    "IID_KILLSWORD": "必杀刀",
+    "IID_KNIFE": "匕首",
+    "IID_KNIGHTKILLER": "刺马枪",
+    "IID_KNIGHTRING": "骑士指轮",
+    "IID_KNIGHTSHIELD": "骑士守护",
+    "IID_LIGHTNING": "光",
+    "IID_LIGHTNINGBOW": "光弩",
+    "IID_LIONNAIL": "爪「狮子」",
+    "IID_LIVE": "回复之杖",
+    "IID_LOFABOW": "约珐之弓",
+    "IID_LONGARCH": "长弩",
     "IID_LONGBOW": "长弓",
-    "IID_LONGLONGBOW": "双重弓",
-    "IID_LONGSWORD": "长柄刀",
-    "IID_LUCKDROP": "幸运之雫",
-    "IID_MAGESRING": "魔道士指环",
-    "IID_MAGICDROP": "魔力之雫",
+    "IID_LONGLONGBOW": "女神辉闪",
+    "IID_LONGSWORD": "王者之剑",
+    "IID_LUCKDROP": "女神像",
+    "IID_MAGESRING": "魔道士的腕轮",
+    "IID_MAGICDROP": "精灵之粉",
     "IID_MAGICRING": "魔力指环",
-    "IID_MASTERPROOF": "上级证明",
-    "IID_MDDROP": "魔防之雫",
-    "IID_METEOR": "流星群",
-    "IID_MJOLNIR": "雷神之锤",
-    "IID_MSHIELD": "魔防杖",
+    "IID_MASTERPROOF": "统帅之证",
+    "IID_MDDROP": "魔法护身符",
+    "IID_METEOR": "陨石",
+    "IID_MJOLNIR": "神雷",
+    "IID_MSHIELD": "魔防之杖",
     "IID_ONAGER": "投石器",
-    "IID_PEGASUSKNIGHTSRING": "天马骑士指环",
+    "IID_PEGASUSKNIGHTSRING": "天马骑士的腕轮",
     "IID_POISONAXE": "毒斧",
     "IID_POISONBOW": "毒弓",
     "IID_POISONLANCE": "毒枪",
     "IID_POISONSWORD": "毒剑",
-    "IID_POLEAXE": "破骑斧",
-    "IID_POWERDROP": "力量之雫",
+    "IID_POLEAXE": "连珠斧",
+    "IID_POWERDROP": "能量之液",
     "IID_POWERRING": "力量指环",
-    "IID_PRACTICEAXE": "练习斧",
-    "IID_PRACTICESWORD": "练习剑",
+    "IID_PRACTICEAXE": "训练斧",
+    "IID_PRACTICESWORD": "训练剑",
     "IID_PRAY": "祈祷之书",
-    "IID_PRIESTSRING": "神官指环",
+    "IID_PRIESTSRING": "神官的腕轮",
     "IID_PROVOKE": "挑衅之书",
-    "IID_PURGE": "大耀光",
-    "IID_RAGNELL": "拉格内尔",
-    "IID_RANCEBASTER": "破枪剑",
-    "IID_REBLOW": "远疗杖",
-    "IID_RECOVER": "全愈杖",
-    "IID_REDBREATH": "红龙气息",
-    "IID_REDGEM": "红宝石",
-    "IID_REINFORCEMENTS": "增援之书",
-    "IID_RELIVE": "救济杖",
-    "IID_RESCUE": "救出杖",
-    "IID_RESCUEP": "守护之书",
-    "IID_RESERVE": "万能药杖",
-    "IID_RESIRE": "吸血",
-    "IID_REST": "复元杖",
-    "IID_RUNESWORD": "魔法剑",
+    "IID_PURGE": "净化之光",
+    "IID_RAGNELL": "拉格尼尔",
+    "IID_RANCEBASTER": "拉格兹必杀剑",
+    "IID_REBLOW": "治愈之杖",
+    "IID_RECOVER": "痊愈之杖",
+    "IID_REDBREATH": "吐息「赤龙」",
+    "IID_REDGEM": "赤之宝玉",
+    "IID_REINFORCEMENTS": "援军之书",
+    "IID_RELIVE": "治疗之杖",
+    "IID_RESCUE": "援救杖",
+    "IID_RESCUEP": "救援之书",
+    "IID_RESERVE": "生命之杖",
+    "IID_RESIRE": "吸星术",
+    "IID_REST": "复原之杖",
+    "IID_RUNESWORD": "卢尼之剑",
     "IID_SECRETBOOK": "秘传之书",
-    "IID_SHADE": "潜行之书",
-    "IID_SHINE": "光",
-    "IID_SHORTBOW": "短弓",
-    "IID_SILENCE": "沉默杖",
+    "IID_SHADE": "影之书",
+    "IID_SHINE": "阳光",
+    "IID_SHORTBOW": "拉格兹必杀弓",
+    "IID_SILENCE": "沉默之杖",
     "IID_SILVERAXE": "银斧",
-    "IID_SILVERBLADE": "银刀",
+    "IID_SILVERBLADE": "银之大剑",
     "IID_SILVERBOW": "银弓",
     "IID_SILVERCARD": "银卡",
     "IID_SILVERLANCE": "银枪",
     "IID_SILVERSWORD": "银剑",
-    "IID_SLEEP": "睡眠杖",
-    "IID_SLENDERSPEAR": "短枪",
+    "IID_SLEEP": "睡眠之杖",
+    "IID_SLENDERSPEAR": "锁链枪",
     "IID_SLIMLANCE": "细枪",
     "IID_SLIMSWORD": "细剑",
-    "IID_SOCIALKNIGHTSRING": "苍炎骑士指环",
-    "IID_SOLDIERRING": "枪兵指环",
-    "IID_SONICAXE": "雷霆斧",
-    "IID_SONICBLADE": "音速剑",
-    "IID_SPEEDDROP": "速度之雫",
+    "IID_SOCIALKNIGHTSRING": "骑士的腕轮",
+    "IID_SOLDIERRING": "兵士的腕轮",
+    "IID_SONICAXE": "魔刃斧",
+    "IID_SONICBLADE": "音速之剑",
+    "IID_SPEEDDROP": "疾风之羽",
     "IID_SPEEDWING": "速度之翼",
     "IID_STEELAXE": "钢斧",
-    "IID_STEELBLADE": "钢刀",
+    "IID_STEELBLADE": "钢之大剑",
     "IID_STEELBOW": "钢弓",
-    "IID_STEELLANCE": "钢枪",
+    "IID_STEELLANCE": "钢",
     "IID_STEELSWORD": "钢剑",
-    "IID_STILETTO": "暗器",
-    "IID_SWIFT": "迅捷之书",
-    "IID_SWORDBASTER": "破剑斧",
-    "IID_SWORDERSRING": "剑士指环",
-    "IID_TACKLE2": "击倒之书",
+    "IID_STILETTO": "突刺短刀",
+    "IID_SWIFT": "俊足之书",
+    "IID_SWORDBASTER": "短斧",
+    "IID_SWORDERSRING": "剑士的腕轮",
+    "IID_TACKLE2": "冲撞之书",
     "IID_TALISMAN": "守护符",
-    "IID_TECHDROP": "技之雫",
+    "IID_TECHDROP": "秘传之书",
     "IID_TELEGNOSIS": "千里眼之书",
-    "IID_TEMPER": "暴风之书",
-    "IID_THIEFSRING": "盗贼指环",
-    "IID_THORON": "落雷",
-    "IID_THUNDER": "雷",
-    "IID_THUNDERSTORM": "雷暴",
-    "IID_TIGERNAIL": "猛虎之爪",
-    "IID_TOMAHAWK": "战斧",
-    "IID_TORCH": "火炬杖",
-    "IID_TORNADO": "暴风",
+    "IID_TEMPER": "大起落之书",
+    "IID_THIEFSRING": "盗贼的腕轮",
+    "IID_THORON": "雷鸣",
+    "IID_THUNDER": "闪电",
+    "IID_THUNDERSTORM": "雷爆",
+    "IID_TIGERNAIL": "爪「虎」",
+    "IID_TOMAHAWK": "回旋斧",
+    "IID_TORCH": "松明之杖",
+    "IID_TORNADO": "龙卷风",
     "IID_TREASUREKEY": "宝箱钥匙",
-    "IID_TURNREGENE": "再生之书",
-    "IID_UNLOCK": "开启杖",
-    "IID_URVAN": "乌尔班",
-    "IID_VSBEAST": "兽属性护符",
-    "IID_VSHUMAN": "人属性护符",
+    "IID_TURNREGENE": "回复之书",
+    "IID_UNLOCK": "开锁杖",
+    "IID_URVAN": "圣炎神兽",
+    "IID_VSBEAST": "拉格兹守护",
+    "IID_VSHUMAN": "贝奥克守护",
     "IID_VULNERARY": "伤药",
-    "IID_WARP": "转移杖",
-    "IID_WATOU": "和刀",
-    "IID_WEAPONDESTROY": "武器破坏之书",
-    "IID_WEAPONDROP": "武器熟练之书",
-    "IID_WHITEBREATH": "白龙气息",
-    "IID_WHITEGEM": "白宝石",
-    "IID_WIND": "风",
-    "IID_ZANEZPHTE": "铁壁之枪"
+    "IID_WARP": "传送杖",
+    "IID_WATOU": "波刃皇剑",
+    "IID_WEAPONDESTROY": "武器破坏的书",
+    "IID_WEAPONDROP": "武术书",
+    "IID_WHITEBREATH": "吐息「白龙」",
+    "IID_WHITEGEM": "白之宝玉",
+    "IID_WIND": "风刃",
+    "IID_ZANEZPHTE": "欲望本源"
   },
   "item_traits": {
     "infinity": "不损耗",
