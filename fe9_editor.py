@@ -4,7 +4,7 @@ import sys, os, hashlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from PyQt6.QtCore import Qt, QSize
-from PyQt6.QtGui import QColor, QBrush, QAction, QIntValidator, QKeySequence, QFont
+from PyQt6.QtGui import QColor, QBrush, QAction, QIntValidator, QKeySequence, QFont, QPalette
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QTabWidget,
     QVBoxLayout, QHBoxLayout, QWidget, QFileDialog, QMessageBox, QHeaderView,
@@ -16,15 +16,70 @@ from fe9_model import FE9Data, STAT_KEYS, STAT_CN, WEAPON_TYPES_CN, UnsafePointe
 
 DEFAULT_GCM = ''   # set to a path to auto-load on startup; empty = require manual File→Open
 
-# Color scheme
-MOD_BG     = QColor(255, 240, 130)   # 修改未保存
-RO_BG      = QColor(245, 245, 245)   # 只读
-LOCKED_BG  = QColor(225, 225, 225)   # 锁定 (不可写非 null — 引擎会崩)
-TINT_CAPS  = QColor(255, 248, 248)
-TINT_BASES = QColor(248, 255, 248)
-TINT_GROWTHS = QColor(248, 248, 255)
-TINT_LAGUZ = QColor(255, 252, 245)
-TINT_SCALAR = QColor(252, 252, 244)
+# ---------------------------------------------------------------------------
+# Color scheme — light defaults; _init_color_scheme() swaps them for darker
+# variants when Qt is rendering with a dark palette (macOS Dark Mode etc.).
+# All table cells use setBackground(...) but no explicit foreground, so they
+# inherit the system text color; in dark mode the system text is light and on
+# a light yellow/gray background it becomes invisible. The dark variants pick
+# muted hues that keep enough contrast against light system text.
+# ---------------------------------------------------------------------------
+_COLORS_LIGHT = dict(
+    MOD_BG       = QColor(255, 240, 130),  # 修改未保存
+    RO_BG        = QColor(245, 245, 245),  # 只读
+    LOCKED_BG    = QColor(225, 225, 225),  # 锁定 (不可写非 null — 引擎会崩)
+    TINT_CAPS    = QColor(255, 248, 248),
+    TINT_BASES   = QColor(248, 255, 248),
+    TINT_GROWTHS = QColor(248, 248, 255),
+    TINT_LAGUZ   = QColor(255, 252, 245),
+    TINT_SCALAR  = QColor(252, 252, 244),
+)
+_COLORS_DARK = dict(
+    MOD_BG       = QColor(115,  90,  10),  # 修改未保存 (dim amber)
+    RO_BG        = QColor( 55,  55,  55),  # 只读 (dim gray)
+    LOCKED_BG    = QColor( 35,  35,  35),  # 锁定 (deeper dim gray)
+    TINT_CAPS    = QColor( 60,  35,  35),  # caps (dim red)
+    TINT_BASES   = QColor( 35,  60,  35),  # bases (dim green)
+    TINT_GROWTHS = QColor( 35,  40,  65),  # growths (dim blue)
+    TINT_LAGUZ   = QColor( 65,  50,  30),  # laguz (dim ochre)
+    TINT_SCALAR  = QColor( 50,  50,  35),  # scalar (dim olive)
+)
+MOD_BG       = _COLORS_LIGHT['MOD_BG']
+RO_BG        = _COLORS_LIGHT['RO_BG']
+LOCKED_BG    = _COLORS_LIGHT['LOCKED_BG']
+TINT_CAPS    = _COLORS_LIGHT['TINT_CAPS']
+TINT_BASES   = _COLORS_LIGHT['TINT_BASES']
+TINT_GROWTHS = _COLORS_LIGHT['TINT_GROWTHS']
+TINT_LAGUZ   = _COLORS_LIGHT['TINT_LAGUZ']
+TINT_SCALAR  = _COLORS_LIGHT['TINT_SCALAR']
+
+
+def _is_dark_palette(app):
+    """True when Qt is rendering with a dark color scheme — derived from
+    the WindowText brightness rather than colorScheme(), so this works on
+    Qt < 6.5 too."""
+    if app is None:
+        return False
+    return app.palette().color(QPalette.ColorRole.WindowText).lightness() > 128
+
+
+def _init_color_scheme(app=None):
+    """Pick the light or dark palette based on the current system theme and
+    reassign the module-level color globals. Must be called after the
+    QApplication is constructed and before any table cells are created
+    (because cell backgrounds are read-once at setBackground time)."""
+    global MOD_BG, RO_BG, LOCKED_BG, TINT_CAPS, TINT_BASES, TINT_GROWTHS, TINT_LAGUZ, TINT_SCALAR
+    if app is None:
+        app = QApplication.instance()
+    scheme = _COLORS_DARK if _is_dark_palette(app) else _COLORS_LIGHT
+    MOD_BG       = scheme['MOD_BG']
+    RO_BG        = scheme['RO_BG']
+    LOCKED_BG    = scheme['LOCKED_BG']
+    TINT_CAPS    = scheme['TINT_CAPS']
+    TINT_BASES   = scheme['TINT_BASES']
+    TINT_GROWTHS = scheme['TINT_GROWTHS']
+    TINT_LAGUZ   = scheme['TINT_LAGUZ']
+    TINT_SCALAR  = scheme['TINT_SCALAR']
 
 
 def make_item(text='', editable=True, bg=None, mono=False, ro_bg=False):
@@ -1734,6 +1789,7 @@ class MainWindow(QMainWindow):
 def main():
     app = QApplication(sys.argv)
     app.setApplicationName('FE9 编辑器')
+    _init_color_scheme(app)
     win = MainWindow(DEFAULT_GCM if os.path.exists(DEFAULT_GCM) else None)
     win.show()
     sys.exit(app.exec())
